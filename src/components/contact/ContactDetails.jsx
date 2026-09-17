@@ -90,7 +90,7 @@ export default function ContactDetails() {
       </p>
 
       {/* Email card */}
-      <button
+      {/* <button
         type="button"
         data-reveal
         onClick={copyEmail}
@@ -165,7 +165,7 @@ export default function ContactDetails() {
             )}
           </span>
         </span>
-      </button>
+      </button> */}
 
       {/* Phone card */}
       <button

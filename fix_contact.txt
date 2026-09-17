@@ -1,0 +1,167 @@
+I want to change the approach for sending message
+i give you access to read the .env.local file
+
+instead of using "resend" i want you to implement "nodemailer" for sending the email
+below is a code sample, to help you learn
+i want it to send two messages:
+    1. to my email: akinolavictor50@gmail.com
+    2. to the email of the client inputted in the formfield
+You can upgrade the messages to be sent and make them more descriptive and professional
+do not make any message sent to the user sound personal, make it professional, to fit a company standard (Motion-Y)
+also, ensure to inclde all the details from the form into the message sent by the client
+if you have another better plan, let me know 
+before starting ensure to let me see your plan
+
+
+
+
+
+
+
+
+
+//at the backend
+const nodemailer = require('nodemailer');
+export default async function nodemailer_sample_implementation(req, res) {
+    const {userEmail, subject, html} = req.body
+    
+    console.log("called email");
+    
+    let transporter = nodemailer.createTransport({
+        // service: 'gmail',
+        auth: { 
+            user: process.env.NEXT_PUBLIC_USEMAIL,
+            pass: process.env.NEXT_PUBLIC_USEPASS  // USED APP PASSWORD
+        },
+        host: "smtp.gmail.com",
+        port: process.env.NEXT_PUBLIC_DEVELOPMENT_ENV=="local"?465:587,
+        secure: process.env.NEXT_PUBLIC_DEVELOPMENT_ENV=="local"?true:false,
+        // port: 587,
+        // secure: false,
+
+        // requireTLS: true,
+        connectionTimeout: 10000,
+        
+        greetingTimeout: 10000,
+        tls: {
+            ciphers: 'SSLv3',
+            rejectUnauthorized: false
+        }
+    })
+
+    
+    try {
+        await transporter.sendMail({
+            from: process.env.NEXT_PUBLIC_USEMAIL,
+            to: userEmail,
+            subject,
+            html
+        }).then(()=>{
+            console.log("finally done");
+            res.send({successful: true})
+        }).catch((e)=>{
+            console.log("err");
+            console.log(e);
+            res.send({successful: false})
+        })
+    } catch (e){
+        console.log("err_2");
+        console.log(e);
+        res.send({successful:false})
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// at the frontend
+async function send_two_messages(){
+    if(loading) return
+
+    if(isBlank(name)){
+        setError("Please ensure your name is not empty")
+        return
+    }
+    
+    if(!email.split('').includes('.') || !email.split('').includes('@') || email.length<5 || isBlank(email)) {
+        setError("Invalid email address, please ensure to use a valid email address")
+        return
+    }
+
+    if(isBlank(message)){
+        setError("Please ensure messgae is not blank")
+        return
+    }
+
+
+    
+    setLoading(true)
+
+    await user_message()
+    await report_message({last: true})
+
+
+    async function user_message() {
+        const html_2 = `
+            <div>
+                <h4>Hello ${name}, Thank you for reaching out to us</h4>
+                <p>Your message has reached my end, and we'll respond accordingly.</p>
+            </div>
+        `
+        const sender_payload = {
+            userEmail: `${email}`,
+            subject: 'Portfolio || Victor',
+            html: html_2
+        }
+        await emailSender({data: sender_payload})
+    }
+
+    async function report_message({last}) {
+        const html_1 = `
+            <div>
+                <p>${message}</p>
+                <p>This is the user email: ${email}</p>
+            </div>
+        `
+        const developer_payload = {
+            userEmail: `akinolavictor50@gmail.com`,
+            subject: `Message from ${name}`,
+            html: html_1
+        }
+
+        await emailSender({data: developer_payload, last})
+    }
+
+    async function emailSender({data, last}) {
+        return await axios.post("/api/sendEmail_2", {...data}).then((result)=>{
+            const {successful} = result.data
+            if(successful){
+                console.log("successful");
+
+                if(!last) return
+                
+                update("name", "")
+                update("message", "")
+                update("email", "")
+                setError("")
+                
+                alert("Message Sent Successfully.")
+            }
+            return {done: true}
+        }).catch((e)=>{
+            console.log("error encountered", e);
+            if(last) alert("Unable to send messagae")
+            return {done: false}
+        })
+    }
+    setLoading(false)
+}

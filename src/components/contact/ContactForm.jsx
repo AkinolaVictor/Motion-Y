@@ -146,15 +146,15 @@ export default function ContactForm() {
             Thanks — I'll reply soon.
           </h3>
           <p className="text-[14px] leading-[1.7] text-[var(--text-muted)]">
-            Your message landed. Expect a reply within 48 hours, Monday to Friday. If it's
-            urgent, the fastest path is{" "}
+            Your message landed. Expect a reply within 48 hours, Monday to Friday. 
+            {/* If it's urgent, the fastest path is{" "}
             <a
               href={`mailto:${"akinolavictor50@gmail.com"}`}
               className="text-[var(--text-primary)] underline-offset-4 hover:text-[var(--accent)] hover:underline"
             >
               {"akinolavictor50@gmail.com"}
             </a>
-            .
+            . */}
           </p>
           <button
             type="button"
