@@ -142,10 +142,7 @@ function buildClientHtml({ name }) {
             A member of the Motion-Y team will contact you shortly to discuss how we can best support your objectives.
           </p>
           <p style="font-size:15px; line-height:1.7; color:#cfd2d8; margin:0 0 4px;">Regards,</p>
-          <p style="font-size:15px; line-height:1.4; color:#ffffff; margin:0; font-weight: 600;">Motion-Y AI Agency</p>
-          <p style="font-family: 'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#7a7f87; margin:24px 0 0;">
-            This is an automated confirmation. Please do not reply to this message.
-          </p>
+          <p style="font-size:15px; line-height:1.4; color:#ffffff; margin:0; font-weight: 600;">Motion-Y</p>
         </td></tr>
       </table>
     </div>
@@ -178,58 +175,52 @@ export default async function handler(req, res) {
 
   // Nodemailer Transporter Setup
   const transporter = nodemailer.createTransport({
-    // service: "gmail",
+    service: "gmail",
     auth: {
       user: process.env.NEXT_PUBLIC_USEMAIL,
       pass: process.env.NEXT_PUBLIC_USEPASS,
     },
-
-    connectionTimeout: 10000,
-    host: "smtp.gmail.com",
-    port: process.env.NEXT_PUBLIC_DEVELOPMENT_ENV=="local"?465:587,
-    // port: 587,
-    secure: process.env.NEXT_PUBLIC_DEVELOPMENT_ENV=="local"?true:false,
-    greetingTimeout: 10000,
-    tls: {
-        ciphers: 'SSLv3',
-        rejectUnauthorized: false
-    }
   });
-  
-  try {
-    // Send notification to owner
-    const ownerMail = await transporter.sendMail({
-      from: `Motion-Y <${process.env.NEXT_PUBLIC_USEMAIL}>`,
-      to: "akinolavictor50@gmail.com",
-      subject: `Project Inquiry: ${name}`,
-      html: buildOwnerHtml(clean),
-    }).then(()=>{
-      console.log("Done sending 1")
-    }).catch((err)=>{
-      console.log("Error sending 1...")
-      console.log(err)
-    });
 
-    // Send professional confirmation to client
-    const clientMail = await transporter.sendMail({
-      from: `Motion-Y <${process.env.NEXT_PUBLIC_USEMAIL}>`,
-      to: email,
-      subject: "Thank you for contacting Motion-Y",
-      html: buildClientHtml({ name }),
-    }).then(()=>{
-      console.log("Done sending 2")
-    }).catch((err)=>{
-      console.log("Error sending 2...")
-      console.log(err)
-    });
+  try {
+    // Send both emails in parallel to avoid blocking and improve reliability
+    const results = await Promise.allSettled([
+      transporter.sendMail({
+        from: process.env.NEXT_PUBLIC_USEMAIL,
+        to: "akinolavictor50@gmail.com",
+        subject: `Project Inquiry: ${name}`,
+        html: buildOwnerHtml(clean),
+      }),
+      transporter.sendMail({
+        from: process.env.NEXT_PUBLIC_USEMAIL,
+        to: email,
+        subject: "Thank you for contacting Motion-Y",
+        html: buildClientHtml({ name }),
+      }),
+    ]);
+
+    const ownerResult = results[0];
+    const clientResult = results[1];
+
+    if (ownerResult.status === "rejected") {
+      console.error("[contact] Owner email failed:", ownerResult.reason);
+    }
+    if (clientResult.status === "rejected") {
+      console.error("[contact] Client email failed:", clientResult.reason);
+    }
+
+    // If both failed, return 500. If at least the owner got it, return 200.
+    if (ownerResult.status === "rejected" && clientResult.status === "rejected") {
+      throw new Error("Both email deliveries failed.");
+    }
 
     return res.status(200).json({
       ok: true,
-      ownerSent: !!ownerMail,
-      clientSent: !!clientMail,
+      ownerSent: ownerResult.status === "fulfilled",
+      clientSent: clientResult.status === "fulfilled",
     });
   } catch (e) {
-    console.error("[contact] Mail delivery failed:", e);
+    console.error("[contact] Critical mail delivery failure:", e);
     return res.status(500).json({
       ok: false,
       error: "Failed to deliver message. Please email us directly at akinolavictor50@gmail.com.",
