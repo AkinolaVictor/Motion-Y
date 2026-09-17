@@ -148,16 +148,13 @@ function buildClientHtml({ name }) {
           </p>
           <h1 style="font-size:24px; margin:0 0 16px; color:#ffffff;">Thank you for reaching out, ${safe}.</h1>
           <p style="font-size:15px; line-height:1.7; color:#cfd2d8; margin:0 0 12px;">
-            Your inquiry has been successfully delivered to our team. We have received the details regarding your project and are currently reviewing them.
+            Your inquiry has been successfully delivered to us. We have received the details regarding your project and are currently reviewing them.
           </p>
           <p style="font-size:15px; line-height:1.7; color:#cfd2d8; margin:0 0 24px;">
-            A member of the Motion-Y team will contact you shortly to discuss how we can best support your objectives.
+            We will contact you shortly to discuss how we can best support your objectives.
           </p>
           <p style="font-size:15px; line-height:1.7; color:#cfd2d8; margin:0 0 4px;">Regards,</p>
           <p style="font-size:15px; line-height:1.4; color:#ffffff; margin:0; font-weight: 600;">Motion-Y</p>
-          <p style="font-family: 'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#7a7f87; margin:24px 0 0;">
-            This is an automated confirmation. Please do not reply to this message.
-          </p>
         </td></tr>
       </table>
     </div>
@@ -165,7 +162,7 @@ function buildClientHtml({ name }) {
 }
 
 function buildClientText({ name }) {
-  return `Hello ${name},\n\nThank you for reaching out to Motion-Y.\n\nYour inquiry has been successfully delivered to our team. We have received your project details and are currently reviewing them.\n\nWe will contact you shortly to discuss how we can best support your objectives.\n\nRegards,\nMotion-Y`;
+  return `Hello ${name},\n\nThank you for reaching out to Motion-Y.\n\nYour inquiry has been successfully delivered to us. We have received your project details and are currently reviewing them.\n\nWe will contact you shortly to discuss how we can best support your objectives.\n\nRegards,\nMotion-Y`;
 }
 
 // --- Handler -----------------------------------------------------------------
@@ -203,14 +200,16 @@ export default async function handler(req, res) {
   try {
     const results = await Promise.allSettled([
       transporter.sendMail({
-        from: process.env.NEXT_PUBLIC_USEMAIL,
+        from: `Motion-Y <${process.env.NEXT_PUBLIC_USEMAIL}>`,
+        // from: `process.env.NEXT_PUBLIC_USEMAIL`,
         to: "akinolavictor50@gmail.com",
         subject: `Inquiry from ${name} regarding project`,
         html: buildOwnerHtml(clean),
         text: buildOwnerText(clean),
       }),
       transporter.sendMail({
-        from: process.env.NEXT_PUBLIC_USEMAIL,
+        from: `Motion-Y <${process.env.NEXT_PUBLIC_USEMAIL}>`,
+        // from: process.env.NEXT_PUBLIC_USEMAIL,
         to: email,
         subject: `Thank you for contacting Motion-Y, ${name}`,
         html: buildClientHtml({ name }),
