@@ -1,0 +1,18 @@
+I want to transform this website from  a personal portfolio to a website for my web agency
+
+I want the changes to be made page by page, section by section
+
+- Main the design principles already at work
+
+CHANGES TO THE NAVBAR
+- Change AKINOLA.dev to Motion-Y
+- Change the Navigation title 
+  from: Home, Projects, Lab, Writing, About, contact
+  to: Home, Services, Projects, Insights, About, Contact
+  Note that Insights is the same as writing, so ensure to change both the title and the internal url from Writing to Insights, but retain the page content
+ 
+
+CHANGES TO THE HERO SECTION
+
+
+

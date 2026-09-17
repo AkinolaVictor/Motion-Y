@@ -1,0 +1,133 @@
+PROMPT GENERATOR
+
+Generate a prompt for me that help me generate a UI for the home page,
+I want to use an AI tool to help me generate the actual UI,
+Make the prompt to be comprehensive enough, below are the sections to be contained in the home page
+Describe the scope of the project and every necessary details needed for the AI tool to generate the best AI
+Describe the design scheme for consistency across all pages
+
+
+Home page sections
+    1. Hero: Name (Akinola Victor), AI Engineer title, Short positioning statement, Primary CTA, Secondary CTA
+    2. What I Build: AI Applications, RAG Systems, AI Agents, AI Developer Tools (Each with a short explanation.)
+    3. Featured Projects (generate 8 dormy projects): Project image/video, Name, One-line description, Technologies, GitHub, Live demo
+    4. AI Engineering Capabilities: LLM Applications, RAG, AI Agents, Multimodal AI, AI Automation, LLMOps, AI Evaluation, AI Developer Tools
+    5. How I Build: Show your AI-assisted workflow visually.
+    6. Currently Exploring: Agentic architectures, Multimodal AI, Local LLM deployment, AI evaluation, Model optimization
+    7. Latest Writing
+    8. CTA: Have an interesting AI problem?, Let's build something.
+
+
+
+
+
+
+Dont forget the details in the home ui prompt for consistency.
+
+Now generate a prompt for me that help me generate a UI for the project page,
+I want to use an AI tool to help me generate the actual UI,
+Make the prompt to be comprehensive enough, below are the sections to be contained in the home page
+Describe the scope of the project and every necessary details needed for the AI tool to generate the best AI
+Describe the design scheme for consistency across all pages
+
+Project page section
+    Text: A collection of AI systems, experiments and developer tools.
+    Filters: All, RAG, Agents, Multimodal, LLM, Developer Tools, ML
+    Each Project should contain: Thumbnail, Project name, Problem, Technology, Status, GitHub, Live Demo
+    Projects should have labels of: Featured, Experimental, Open Source
+
+Each Project Page: 
+    Project Hero
+    Problem
+    Solution
+    Demo
+    Architecture (both text with diagram)
+    How it works
+    Technology
+    Engineering decisions
+    Evaluation
+    Challenges
+    Results
+    Future improvements
+    GitHub / Live Demo
+
+
+
+
+
+
+Dont forget the details in the home ui prompt for consistency.
+
+Now generate a prompt for me that help me generate a UI for this page,
+I want to use an AI tool to help me generate the actual UI,
+Make the prompt to be comprehensive enough, below are the sections to be contained in the home page
+Describe the scope of the project and every necessary details needed for the AI tool to generate the best AI
+Describe the design scheme for consistency across all pages
+
+
+
+About Page sections
+    Introduction: Who you are.
+    My journey: Frontend → full-stack → AI engineering.
+    Engineering philosophy: Build → Measure → Improve
+    What I believe: Short principles.
+    Technical strengths: Your stack
+    Current learning: What you're exploring.
+    Timeline: A visual career/learning timeline.
+    Resume: Download/view CV.
+    Social links: GitHub, LinkedIn, X, etc.
+
+
+
+Lab Page sections
+    Victor's AI Lab: To help demonstrate that you're actively learning without pretending every experiment is a production project.
+    It's your experimental playground.
+    Show things you're experimenting with:
+        🧪 Local LLM experiments
+        🧪 Agent architectures
+        🧪 RAG experiments
+        🧪 Prompt experiments
+        🧪 Multimodal experiments
+        🧪 AI developer tooling
+
+        Each experiment can have:
+            Question
+            Experiment
+            Result
+            What I learned
+
+
+
+
+
+Writting Page section
+    A blog page to post things i'm learning and building
+    For example:
+        AI Engineering
+            How I built my first RAG system
+            Understanding embeddings
+            Building an agent from scratch
+        AI + Development
+            How I use Claude Code in development
+            Building an AI-native development workflow
+            Using local LLMs for coding
+        Technical experiments
+            Qwen vs other coding models
+            Local inference on low-end hardware
+            Evaluating RAG systems
+
+
+
+
+
+Contact Page sections
+    Let's build something: Short message.
+    Email
+    Social links: GitHub, LinkedIn, X, etc.
+    Contact form
+        Name
+        Email
+        What are you working on?
+        Message
+        [Send Message]
+

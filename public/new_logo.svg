@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60.707" height="68.564" viewBox="0 0 60.707 68.564">
+  <g id="Group_6" data-name="Group 6" transform="translate(-598.221 -459.857)">
+    <g id="Component_1_7" data-name="Component 1 – 7" transform="translate(598.221 459.857)">
+      <rect id="Rectangle_4" data-name="Rectangle 4" width="8.911" height="41.586" rx="4.456" transform="translate(54.406) rotate(45)" fill="#fff"/>
+      <rect id="Rectangle_8" data-name="Rectangle 8" width="8.911" height="41.586" rx="4.456" transform="translate(0 6.301) rotate(-45)" fill="#fff"/>
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="8.911" height="44.557" rx="4.456" transform="translate(26.32 24.008)" fill="#fff"/>
+    </g>
+    <circle id="Ellipse_9" data-name="Ellipse 9" cx="9" cy="9" r="9" transform="translate(620 479)"/>
+    <circle id="Ellipse_12" data-name="Ellipse 12" cx="2" cy="2" r="2" transform="translate(627 479.2)" fill="#fff"/>
+    <circle id="Ellipse_10" data-name="Ellipse 10" cx="2" cy="2" r="2" transform="translate(621 489)" fill="#fff"/>
+    <circle id="Ellipse_11" data-name="Ellipse 11" cx="2" cy="2" r="2" transform="translate(633 489)" fill="#fff"/>
+    <rect id="Rectangle_23" data-name="Rectangle 23" width="1" height="6" transform="translate(628.6 482)" fill="#fff"/>
+    <rect id="Rectangle_24" data-name="Rectangle 24" width="1" height="7" transform="translate(629.235 487.463) rotate(60)" fill="#fff"/>
+    <rect id="Rectangle_25" data-name="Rectangle 25" width="1" height="9" transform="translate(627.978 481.792) rotate(30)" fill="#fff"/>
+    <rect id="Rectangle_26" data-name="Rectangle 26" width="1" height="9" transform="translate(629.478 482.292) rotate(-30)" fill="#fff"/>
+    <rect id="Rectangle_27" data-name="Rectangle 27" width="1" height="9" transform="translate(633.661 491) rotate(90)" fill="#fff"/>
+    <rect id="Rectangle_28" data-name="Rectangle 28" width="1" height="7" transform="translate(629.1 488.329) rotate(-60)" fill="#fff"/>
+  </g>
+</svg>

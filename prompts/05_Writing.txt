@@ -1,0 +1,216 @@
+================================================================
+PROMPT: 05 — WRITING INDEX PAGE  (/writing)
+================================================================
+Route:       /writing
+File:        src/pages/writing.js (refactor — keep entry shape)
+Sections:    src/components/writing/* (WritingHero,
+             FeaturedArticle, ArticleList, ArticleCard,
+             WritingBio)
+Data:        src/data/writing.js (already exists — keep)
+Depends on:  00_Foundation
+Build after: 04_Lab
+
+----------------------------------------------------------------
+0. WHAT THIS PAGE IS
+----------------------------------------------------------------
+Akinola's technical blog and learning journal. The page should
+read as an editorial publication, NOT a generic blog index.
+Three things it must do:
+
+  1. Show ONE featured article prominently at the top.
+  2. Filter the rest of the articles by category.
+  3. Make every row feel like a journal entry, not a blog card.
+
+Reference image: @docs/prototypes/WrittingUI.png
+Reference doc:   @docs/WrittingUI.md
+
+----------------------------------------------------------------
+1. PAGE FILE
+----------------------------------------------------------------
+src/pages/writing.js
+
+Default export WritingPage().
+State (local — no Redux):
+  const [active, setActive] = useState("all");
+
+Derived (useMemo):
+  counts   = total + per-category counts from ARTICLES.
+  featured = getFeaturedArticle().
+  filtered = listArticlesByCategory(active) excluding
+             featured.slug.
+
+Head:
+  - title "Writing — Akinola Victor"
+  - description "Notes on AI engineering, software development,
+                 experiments, and lessons learned while building
+                 intelligent systems."
+
+Body order:
+  <PageShell>
+    <WritingHero     active={active} onChange={setActive}
+                     counts={counts} />
+    <FeaturedArticle article={featured} />
+    <ArticleList     articles={filtered} />
+    <WritingBio />
+  </PageShell>
+
+----------------------------------------------------------------
+2. SECTION FILES
+----------------------------------------------------------------
+2.1 WritingHero.jsx (refine)
+    Title: "Writing."
+    Lead:   "Notes on AI engineering, software development,
+             experiments, and lessons learned while building
+             intelligent systems."
+    Eyebrow mono strip: "ARTICLES · LEARNING · ENGINEERING · EXPERIMENTS"
+    Filter pills (4): All · AI Engineering · AI + Development ·
+                      Technical Experiments. Pull CATEGORIES
+                      from src/data/writing.js. Style: same
+                      pill component used on /projects and
+                      /lab, with a count chip per category.
+    A right-side or below-lead meta line (mono, 11–12px):
+      "{counts.total} articles · {CATEGORIES.length - 1}
+       categories".
+
+2.2 FeaturedArticle.jsx (refine)
+    ONE large editorial block.
+    Layout (w9+): 12-col grid, image-left, copy-right.
+      Left (w9:col-span-7): a 16:10 cover panel. Use a
+        procedural cover, NOT a stock image. Composition:
+          - bg-surface rounded-2xl border border-subtle.
+          - large issue number (e.g. "014") in the bottom-left
+            (.overpass, clamp(2.5rem, 5vw, 4rem), accent at
+            30% opacity).
+          - top-right: small mono category chip + read time.
+          - a faint decorative svg pattern (a code-editor-
+            inspired brace pair, terminal cursor, or stacked
+            rectangles).
+      Right (w9:col-span-5):
+        - Eyebrow: "FEATURED · {category label}".
+        - h2 article.title (.overpass, clamp(1.75rem, 3.4vw,
+          2.5rem), semibold, tracking-[-0.01em], leading
+          [1.05]). The title is a <Link> to /writing/<slug>.
+        - article.lede (one paragraph, max-w-[58ch],
+          text-[16px]→w8:text-[17px], leading 1.65,
+          text-muted). The lede is a special field on the
+          record, distinct from `excerpt`.
+        - Meta row (mono, 12px, uppercase, tracking 0.18em,
+          text-muted): "ISSUE {issue} · {date} · {readTime}".
+        - CTA: "Read article →"  (mono, hover text-accent,
+          with the → translating 1 unit on hover).
+
+2.3 ArticleList.jsx (refine)
+    Renders the rest of the articles as an editorial list.
+    Container: <Container>. Layout:
+      - Optional section header eyebrow "ARTICLES" + small
+        counter (mono, e.g. "{n} entries"). If active === "all"
+        the eyebrow is "ARTICLES"; otherwise it is
+        "ARTICLES · {CATEGORIES.find(c=>c.key===active).label}".
+      - <ul> of <ArticleCard article={a} /> rows.
+      - Rows separated by border-t border-subtle.
+      - Empty state (mono caption "Nothing in this category
+        yet — try another."), centered, py-16.
+
+2.4 ArticleCard.jsx (refine)
+    One row in the editorial list.
+    Layout (w7+, 12-col grid):
+      Left (w7:col-span-2):
+        - Mono issue number "ISSUE {issue}" (12px, accent).
+        - Mono date below (10px, text-muted, uppercase).
+      Middle (w7:col-span-7):
+        - Category chip (mono uppercase 11px).
+        - h3 title (.overpass, 18–20px, semibold, links to
+          /writing/<slug>, hover text-accent).
+        - excerpt (text-[14.5px], leading-[1.65], text-muted,
+          max-w-[60ch], clamp to 2 lines).
+        - tags (max 3, mono 10–11px, text-muted).
+      Right (w7:col-span-3):
+        - Mono readTime chip.
+        - "Read →" link (mono uppercase 11px, hover text-accent,
+          arrow translates 1 unit on hover).
+    On mobile: stack vertically; keep the order number, date,
+    category, title, excerpt, tags, read-time, "Read →".
+
+2.5 WritingBio.jsx (refine)
+    Closing section.
+    - Eyebrow "## / Colophon" (mono).
+    - A short personal paragraph (max-w 60ch):
+        "These are my notes — sometimes polished, sometimes
+         raw, always honest. If something here teaches you
+         something, the /contact page is open."
+    - Two inline links:
+        "More writing →"   → /writing (no-op, already here)
+        "Browse the lab →" → /lab
+    - Centered or left-aligned. Small section, ~ py-20 w9:py-24.
+
+----------------------------------------------------------------
+3. DATA USAGE
+----------------------------------------------------------------
+- src/data/writing.js exports CATEGORIES, ARTICLES,
+  getFeaturedArticle, listArticlesByCategory.
+  Add (do not remove):
+    - export function getArticlesCount() { return ARTICLES.length; }
+    - export function getArticleByIssue(issue) { ... }
+- Article records have both `excerpt` and `lede`:
+    - excerpt: short summary used on listing cards.
+    - lede:    first paragraph used on the featured article.
+- Filter pills pull from CATEGORIES; do not redefine labels.
+
+----------------------------------------------------------------
+4. ANIMATION
+----------------------------------------------------------------
+- Filter pill active transition: 200ms CSS.
+- FeaturedArticle: 0.6s ease power2.out on entry, once.
+- ArticleList rows: 0.5s × stagger 0.05, once per row.
+- Reduced-motion: all gsap calls early-return.
+
+----------------------------------------------------------------
+5. RESPONSIVE BEHAVIOR
+----------------------------------------------------------------
+- < w7: 1 col layout, featured article image is full width
+  above the copy, list rows stack.
+- w7: 12-col row layout for cards.
+- ≥ w9: full layout as described.
+
+----------------------------------------------------------------
+6. ACCESSIBILITY
+----------------------------------------------------------------
+- role="tablist" on the filter pill region, role="tab" on
+  each pill, aria-selected={isActive}.
+- Each row is an <article> with an h3 title.
+- The "Read article →" / "Read →" / "More writing →" links
+  are reachable by Tab in source order.
+- Featured article's title link is the primary landmark;
+  the image is decorative (aria-hidden).
+
+----------------------------------------------------------------
+7. DO NOT
+----------------------------------------------------------------
+- Do NOT add a "subscribe" or "RSS" link — no feed exists.
+- Do NOT add a comments section.
+- Do NOT add a sort dropdown.
+- Do NOT show a date range / month headers — articles are
+  ordered by date desc and that is enough.
+- Do NOT render the article's full body on the index page;
+  the index is the entry point to /writing/[slug].
+
+----------------------------------------------------------------
+8. ASSUMPTIONS
+----------------------------------------------------------------
+- Articles are ordered by `date` desc within the filtered
+  list. listArticlesByCategory() already does this; do not
+  re-sort in the page file.
+- The featured article is the one record with `featured: true`.
+  If multiple records have it, pick the most recent. If none
+  have it, fall back to the most recent article.
+- The article body, code blocks, and pull quotes are NOT
+  rendered on the index — they live on /writing/[slug]
+  (next prompt).
+- "ISSUE NNN" is a display number from the `issue` field on
+  each record. It is not an actual journal issue — it is
+  a stable chronological index that gives the list a
+  publication feel.
+- The /writing/[slug] route exists and the rows link there.
+  If a slug is missing at build time, the row simply shows
+  no link; the page does not break.
+================================================================

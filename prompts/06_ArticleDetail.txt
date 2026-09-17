@@ -1,0 +1,257 @@
+================================================================
+PROMPT: 06 — ARTICLE DETAIL PAGE  (/writing/[slug])
+================================================================
+Route:       /writing/[slug]
+File:        src/pages/writing/[slug].js (exists — refine)
+Sections:    src/components/articleDetail/* (ArticleHero,
+             ArticleBody, ArticlePullQuote, ArticleTakeaways,
+             RelatedArticles, NextArticle)
+Data:        src/data/writing.js (ARTICLES, getArticleBySlug,
+             getAdjacentArticles, getRelatedArticles)
+Depends on:  00_Foundation, 05_Writing
+Build after: 05_Writing
+
+----------------------------------------------------------------
+0. WHAT THIS PAGE IS
+----------------------------------------------------------------
+A long-form article page. It is a sibling of /projects/[slug]
+but reads as a publication, not a case study:
+
+  /projects/[slug] = technical case study (system blueprint).
+  /writing/[slug]  = long-form article (essay + diagrams).
+
+Visual target: a premium technical publication (think Stripe
+blog, Vercel blog, Increment magazine) combined with a personal
+engineering journal.
+
+Reference image: @docs/prototypes/WrittingUI.png (the index
+                 page; the article page has no dedicated mock —
+                 use the same visual language plus editorial
+                 typography for the body).
+Reference doc:   @docs/WrittingUI.md
+User direction (textme.txt): "build the /writing/[slug] page,
+quite similar to the /projects/[slug] page".
+
+----------------------------------------------------------------
+1. PAGE FILE
+----------------------------------------------------------------
+src/pages/writing/[slug].js
+
+Default export ArticleDetailPage({ article, prev, next, related }).
+If !article, return null (getStaticProps returns notFound for
+unknown slugs).
+
+Body slicing (in the page file, NOT in a component):
+  const headBlocks = article.body.slice(0, 2);
+  const tailBlocks = article.body.slice(2);
+This places the pull quote after the first 2 body blocks so it
+reads as a mid-article breath, not a header.
+
+Head:
+  - title: "{article.title} — Akinola Victor"
+  - description: article.excerpt
+  - og:title, og:description: same
+  - og:type: "article"
+
+Body order:
+  <PageShell>
+    <ArticleHero        article={article} />
+    <ArticleBody        blocks={headBlocks} />
+    <ArticlePullQuote   quote={article.pullQuote} />
+    <ArticleBody        blocks={tailBlocks} />
+    <ArticleTakeaways   takeaways={article.takeaways} />
+    <RelatedArticles    articles={related} />
+    <NextArticle        prev={prev} next={next} />
+  </PageShell>
+
+getStaticPaths and getStaticProps already exist — keep them.
+getStaticProps must return:
+  { props: { article, prev, next, related } }
+where related = getRelatedArticles(slug, 2).
+
+----------------------------------------------------------------
+2. SECTION FILES
+----------------------------------------------------------------
+2.1 ArticleHero.jsx (refine)
+    Title, category, date, read time, lede, byline, share-free
+    reading metadata.
+
+    Layout (centered single column, max-w-[820px]):
+      - Mono breadcrumb "Writing / {issue-or-slug}".
+      - Eyebrow: category label (accent) · {date} · {readTime}.
+      - h1 article.title (.overpass, clamp(2.25rem, 5vw, 4rem),
+        semibold, tracking-[-0.02em], leading-[1.05]).
+      - article.lede (text-[19px]→w8:text-[20px], leading 1.6,
+        text-primary/90, max-w-[60ch]).
+      - <Portrait/> byline (32px, "by Akinola Victor").
+      - Optional "min read" badge (mono 11px) and a small mono
+        "Last updated {date}" if it differs from the publish
+        date (omit for now unless the data field exists).
+    A subtle "system online" accent dot at the very top of the
+    section, identical to the home page's hero eyebrow.
+
+2.2 ArticleBody.jsx (refine)
+    Renders the `body` array of typed blocks.
+    Block shapes (must match the data file):
+      { type: "p",      text }
+      { type: "h2",     text }
+      { type: "list",   ordered: bool, items: string[] }
+      { type: "code",   lang: string, code: string }
+      { type: "quote",  text, cite?: string }
+      { type: "hr" }
+      { type: "callout", tone: "info"|"warn", text }
+
+    Layout: centered single column, max-w-[720px] (about 70–72ch
+    per line). All block-level elements share the column.
+
+    Each block type:
+      - p: text-[17px]→w8:text-[18px], leading-[1.75],
+        text-[var(--text-primary)]/95, mb-6. First paragraph
+        after a heading has no extra top margin.
+      - h2: .overpass, text-[24px]→w8:text-[28px], semibold,
+        tracking-[-0.01em], mt-12, mb-4, with a small mono
+        "## " prefix in accent (e.g. "## The shape of a
+        spiral").
+      - list: ordered=true → <ol> with mono ordinals; false →
+        <ul> with small accent squares. Items: text-[16.5px],
+        leading-[1.7], mb-2.
+      - code: a styled <pre><code> block. NO external syntax
+        highlighter (Prism/shiki adds bundle weight and is not
+        needed for this site). Instead:
+          - bg-surface, border border-subtle, rounded-lg.
+          - mono 13px, leading-[1.6].
+          - top bar shows lang (mono 10px uppercase,
+            text-muted) + an "copy" button (top right, mono
+            10px uppercase, hover text-accent). The copy
+            button writes the code to the clipboard via
+            navigator.clipboard.writeText and shows a
+            transient "copied" caption for 1.5s.
+          - horizontal scroll on overflow; no wrap.
+      - quote: a left-bordered block (border-l-2 border-accent,
+        pl-5, italic, text-muted, leading-[1.7]). If cite is
+        present, render as a mono "— {cite}" line below.
+      - hr: a 1px gradient hairline (re-use .hairline utility).
+      - callout: a bordered card. tone="info" → border-accent
+        at 30% opacity, bg-surface, with an info dot. tone=
+        "warn" → border-amber-400 at 30% opacity, with a
+        warn dot. Mono "NOTE" / "WARNING" eyebrow at the top.
+
+    Animation: each block type receives a fade + y 8 reveal as
+    it enters the viewport. Honor prefers-reduced-motion.
+
+2.3 ArticlePullQuote.jsx (refine)
+    Centered editorial pull quote, max-w-[720px].
+    Style: large .dmd (DM Serif Display) text, italic, text-
+    primary, leading-[1.3], text-[clamp(1.5rem, 2.4vw, 2rem)].
+    Above the quote: a thin 32px accent line (mx-auto). Below
+    the quote: nothing (no attribution unless the data carries
+    a cite). Centered. Animates in with a 0.4s fade.
+
+2.4 ArticleTakeaways.jsx (refine)
+    A "Key Takeaways" block.
+    - Eyebrow: "TAKEAWAYS" (mono uppercase 11px, accent).
+    - Title: "What to remember." (overpass 22–24px, semibold).
+    - A numbered list of article.takeaways. Each item: a small
+      mono ordinal (01..N) in accent, then the takeaway text
+      (.overpass 16–17px, leading 1.6, text-primary). max-w
+      [60ch].
+    Centered single column.
+
+2.5 RelatedArticles.jsx (refine)
+    A small "Related reading" cluster.
+    - Eyebrow: "RELATED" (mono uppercase 11px).
+    - Title: "Continue reading." (overpass 20–22px, semibold).
+    - 2 ArticleCard rows (reuse the index page's ArticleCard
+      component) showing the most-related 2 articles.
+    - Centered column, max-w-[720px].
+
+2.6 NextArticle.jsx (refine)
+    Closing navigation, identical pattern to NextProject:
+    - Left half: previous article (or a faded placeholder if
+      null), mono "← Previous" + title.
+    - Right half: next article (or null), title + mono "Next →".
+    - Both halves link to /writing/<slug>. Hover: background
+      fade-in, arrow translates 4px on its axis.
+    - Below the row: "All articles →" mono link to /writing.
+
+----------------------------------------------------------------
+3. DATA USAGE
+----------------------------------------------------------------
+- src/data/writing.js is the source of truth.
+- Add (do not remove):
+    - export function getRelatedArticles(slug, n=2)
+      Already exists; verify it returns the n most-related
+      articles by category overlap, then by date desc, with
+      the current article excluded.
+- Each article has: slug, issue, title, excerpt, category,
+  date, readTime, tags, lede, pullQuote, body[], takeaways[],
+  featured.
+
+----------------------------------------------------------------
+4. ANIMATION
+----------------------------------------------------------------
+- Hero: 0.6s entry, no char stagger (long titles would feel
+  sluggish).
+- Body blocks: 0.45s × stagger 0.04, once per block, on
+  viewport entry. Use the revealOnScroll helper.
+- Pull quote: 0.4s fade on entry.
+- Takeaways: 0.45s × stagger 0.05 on entry.
+- All honor prefers-reduced-motion.
+
+----------------------------------------------------------------
+5. RESPONSIVE BEHAVIOR
+----------------------------------------------------------------
+- < w7: 720px max-w collapses to padding 6 (px-6). Code
+  blocks scroll horizontally. Lists indent fully.
+- w7 — w8: 720px max-w is comfortable.
+- ≥ w9: same column; margin auto-centers.
+
+----------------------------------------------------------------
+6. ACCESSIBILITY
+----------------------------------------------------------------
+- Article landmarks: <article> wraps the body. Each block
+  type uses the correct semantic element (<h2>, <ul>, <ol>,
+  <pre><code>, <blockquote>, <hr>).
+- The copy button has aria-label="Copy code" and announces
+  the success state via aria-live="polite" on a visually
+  hidden span.
+- Code blocks have role="group" + aria-label=
+  "{lang} code sample".
+- Headings follow a strict h1 (hero) → h2 (in body) → h3
+  (within components) hierarchy; do not skip levels.
+- All external links (none expected here, but be safe) have
+  a visible "external" affordance.
+
+----------------------------------------------------------------
+7. DO NOT
+----------------------------------------------------------------
+- Do NOT add comments, likes, share buttons, or social embeds.
+- Do NOT add an MDX runtime or a CMS dependency. The body is
+  a typed block array, not markdown.
+- Do NOT add a table of contents (the body is short enough).
+- Do NOT add a print stylesheet.
+- Do NOT change the block shapes; they are a stable contract
+  with src/data/writing.js.
+
+----------------------------------------------------------------
+8. ASSUMPTIONS
+----------------------------------------------------------------
+- The page mirrors /projects/[slug]'s structure but swaps
+  engineering sections (Problem / Solution / Architecture /
+  Tech / Decisions / Metrics / Challenges / Results) for
+  editorial sections (Hero / Body / PullQuote / Body /
+  Takeaways / Related / Next).
+- Code blocks use a TINY inline copy button (no third-party
+  syntax highlighter). The "lang" field is shown as a mono
+  label only.
+- "System online" eyebrow at the top of ArticleHero is a
+  visual rhyme with the home page; it does NOT mean anything
+  is live.
+- The byline is the same <Portrait/> primitive used in
+  ProjectHero, with showByline={true} and size={32}.
+- The body has at least 4 blocks per article (so headBlocks
+  and tailBlocks are both non-empty). If a future article
+  has fewer than 2 blocks, the pull quote still renders
+  before the body for visual consistency.
+- No "subscribe" CTA. The writing page is read-only.
+================================================================

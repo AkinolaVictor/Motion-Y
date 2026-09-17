@@ -1,0 +1,173 @@
+I want to create a website for my agency, 
+Name: Motion-Y
+
+i want to build an agency website.
+
+
+Vision
+To help businesses multiply productivity, accelerate growth, and achieve extraordinary heights in technologically possible ways.
+
+Mission
+To transform businesses through AI and intelligent technology, enabling them to work smarter, grow faster, and turn ambitious goals into measurable results.
+
+What I build/Services Offered listed on home page
+- AI Agents and Systems, 
+- AI Automations, 
+- Intelligent Software, 
+- AI Consulting, 
+- Managed AI, 
+- API Integrations
+
+Now write the prompt for the home page
+
+------------------------------------------------------
+
+Instead of having a separate services page, there'll be no specific services page,
+everytime the user clicks on services at the navbar/footer, it should always direct them to the #services section on the home page
+But when user clicks each service card (at the home page), each should contain these Sections in another page
+- service title and description
+- Key Features of service (max 5)
+- Use Cases (max 5)
+- Ready to Get Started?
+
+
+The portfolio page Sections
+- Hero Section
+- filter/Categories for quick access, and a search bar
+- Featured Projects
+- CTA
+
+now write the prompt for each service/[slug] page
+-------------------------------------------
+
+keep it simple, it should include majorly
+- Name/Title and respective description
+- The challenge
+- The Solution
+- The results
+- Tech Stack
+- CTA
+
+
+
+i want you to transform the about page, make it to be elegant
+Here're the about page Sections:
+- Hero
+- Our Story
+- Vision and Mission
+- Our Values
+- Our Approach
+- What Makes Us Different
+- Technology & Expertise
+- CTA
+Ensure to follow existing UI design principles
+
+
+
+The Blog page Sections
+- Hero
+- Featured Articles
+- filter/Categories for quick access, and a search bar
+- Article Cards
+- CTA
+
+now write the prompt for blog page
+
+
+
+i want us to make the services/[slug] pages
+When a user clicks on any of the services listed in the #services section of the home page, it should take then to the slug page for the services
+Here's how you go about things:
+
+1. when user clicks on AI Agents Development, it should open a /services/ai_agents page,
+view this ui photo to see what the UI of this page should look like: @services_slug\agents.png
+
+2. when user clicks on Process Automation, it should open a /services/automation page,
+view this ui photo to see what the UI of this page should look like: @services_slug\automation.png
+
+3. when user clicks on Intelligent Softwares, it should open a /services/i_softwares page,
+view this ui photo to see what the UI of this page should look like: @services_slug\chatbots.png
+
+4. when user clicks on API & Integration, it should open a /services/integrations page,
+view this ui photo to see what the UI of this page should look like: @services_slug\integration.png
+
+5. when user clicks on AI Consulting, it should open a /services/integrations page,
+view this ui photo to see what the UI of this page should look like: @services_slug\consulting.png
+
+6. when user clicks on AI Consulting, it should open a /services/marketing page,
+view this ui photo to see what the UI of this page should look like: @services_slug\consulting.png
+
+ensure to maintain the design principles of the website, use the inbuilt theme of the website
+the images are of light theme, but use the theme and UI Systems in this project
+
+don't delete any file, maintain the code structure also
+let me know your plan before starting
+
+
+good job.
+the Capabilities:Engineered for Outcome section in each /services/[slug] is not behaving nicely
+sometimes when the page is reloaded, it dosen't show any card,
+also it dosen't show each card with equal opacity, some cards are faded while others are clear
+what is wrong
+
+
+PORTFOLIO PAGE
+Let's create a portfolio page
+
+1. At the navbar: Add a new option called Portfolio
+  place it between Services and Projects,
+
+2. Let the design of this new page be quite similar to the Projects page
+   Let there be both categories and the search bar
+   Category options should be: All, AI Agents, Automations, AI Softwares, Integrations, Consulting, Others 
+   Make sure both the categories and the search bar are functional
+
+3. There should be cards to display each project in the portfolio
+   Create 8 demo projects to start with
+   let them agree with 2 above
+   As opposed to displaying all projects in a list, make it to be displayed in a grid
+   Here are some of the data for each card: 
+   Company name: Chivita, Word description: AI chatbot for website and phone support, logo icon, And a few more
+   Here is a sample of the card for each project: @services_slug\porfolio_card_sample.jpg
+   Here is a sample of the card for the grid display: @services_slug\porfolio_card_grid.jpg
+
+
+PORTFOLIO/[SLUG]
+Also build the portfolio/[slug] page for each project in the portfolio section
+Here is a sample of the UI of this page.
+
+   
+ensure to maintain the design principles of this website, use the inbuilt theme of the website
+the images are of light theme, but use the theme and UI design Systems in this project
+
+don't delete any file, maintain the code structure also
+let me know your plan before starting
+
+
+in the portfolio/[slug]
+let the problem, Solution, result, and tech-stack be richly detailed with bullets/paragraphs
+Also create a space to accomodate the company logo
+
+let the solution at the /portfolio/[slug] contain at least one long paragraph about 70 words, and then 5 list of 15-23 words for further detail
+Let the problem be about 70 words also
+let the result contain about 5 list of 17-25 words for point
+
+
+
+
+i want you to rewrite some places in the about page
+this: Motion-Y began as a collective of software engineers obsessed with efficiency. We spent...
+and this: As the AI landscape shifted from simple prompts to autonomous agents, we recognized...
+Dont sound like we have so many years of experience, also dont sound like we're new in the AI business
+
+
+i just added a logo at the publlic directory,
+use it instead of the one you have, ensure to make it allign in size and theme
+logo_light.png: for dark mode
+logo_dark.png: for light mode
+
+Motion-Y began as a collective of software engineers obsessed with efficiency. We spent years building complex full-stack systems for diverse industries, mastering the art of scalable architecture and seamless user experiences.
+As the AI landscape shifted from simple prompts to autonomous agents, we recognized a critical gap: the need for AI that is actually production-ready. We pivoted our entire operation to focus on AI Engineering—blending software rigor with model intelligence to build systems that don't just "chat," but actually "do."
+
+
+

@@ -1,0 +1,48 @@
+
+Init Prompt
+Hey check through this project and understand it well
+Q: What do you know now.
+
+Lets start to build page by page
+
+Read through the claude.md file and follow through with the necessary references, and build the project page now.
+Ensure to keep a consistent design
+
+
+CORRECTIONS FOR THE HOME SECTION
+for the focus section (02), that part where you say "What I build",
+i want you to add 2 more options to it, that talk about
+that i build business tools and marketing systems
+
+for the Featured projects section (03),
+instead of having all the projects i've done being listed,
+just list about 4 or 5, and keep that link that says view all projects.
+make sure the list to be displayed are the most recent projects
+
+
+CORRECTIONS FOR THE PROJECT PAGE
+Let there be a search bar before all the projects are listed, just below the initial brief groups on top
+
+
+build the /writing/[slug] page, and make it great
+
+quite similar to the /Projects/[slug] page
+
+here are my social media links, i want you to fill them up in every places necessary. you are free to ask me any questions for clarity.
+don't build anything new, just change the links where necessary
+githb: https://github.com/AkinolaVictor
+linkedin: https://www.linkedin.com/in/victoral/
+x: https://x.com/MoreThanAVictor
+email: akinolavictor50@gmail.com
+
+
+
+Let's assume you're a human or an agent that wants to create this website from scratch page by page
+check through the entire project and write me a really complete, comprehensive and detailed prompt to help me build this project
+from bottom up, you are free to make any assumption as necessary.
+
+create a folder called prompts, and save the prompt for each page as a [pagename].txt file in the folder
+at the bottom of each prompt, you can write a list of assumptions you made to generate the full prompt
+
+
+

@@ -1,0 +1,310 @@
+================================================================
+PROMPT: 03 — PROJECT DETAIL PAGE  (/projects/[slug])
+================================================================
+Route:       /projects/[slug]
+File:        src/pages/projects/[slug].js
+Sections:    src/components/projectDetail/* (already exists —
+             ProjectHero, ProblemSolution, Workflow, Architecture,
+             Tech, Decisions, Metrics, Challenges, Results,
+             NextProject)
+Data:        src/data/projects.js (PROJECTS, getProjectBySlug,
+             getAdjacentProjects)
+Depends on:  00_Foundation, 02_Projects
+Build after: 02_Projects
+
+----------------------------------------------------------------
+0. WHAT THIS PAGE IS
+----------------------------------------------------------------
+A reusable case-study layout for any project record. It must
+read as a technical case study, not a marketing landing page.
+The same data record is rendered identically regardless of
+which project it is.
+
+Reference image: @docs/prototypes/EachProjectUI.png
+Reference doc:   @docs/ProjectUI.md
+Live reference:  https://ai-port-test.vercel.app/projects/atlas-rag
+
+----------------------------------------------------------------
+1. PAGE FILE
+----------------------------------------------------------------
+src/pages/projects/[slug].js (already exists — keep the
+getStaticPaths + getStaticProps wiring; do not change the data
+source).
+
+Default export ProjectDetailPage({ project, prev, next }).
+If project is missing, return null (the static props return
+notFound:true for unknown slugs, so this is a safety net).
+
+Head:
+  - title: "{project.name} — Akinola Victor"
+  - description: project.tagline
+  - og:title, og:description: same
+
+Page body, top → bottom (each is its own section component):
+  <PageShell>
+    <ProjectHero        project={project} />
+    <ProblemSolution    problem={project.problem}
+                        solution={project.solution} />
+    <Workflow           steps={project.workflow} />
+    <Architecture       nodes={project.architecture} />
+    <Tech               tech={project.tech} />
+    <Decisions          items={project.decisions} />
+    <Metrics            items={project.metrics} />
+    <Challenges         items={project.challenges} />
+    <Results            body={project.results}
+                        future={project.future} />
+    <NextProject        project={project}
+                        prev={prev} next={next} />
+  </PageShell>
+
+----------------------------------------------------------------
+2. SECTION FILES
+----------------------------------------------------------------
+2.1 ProjectHero.jsx (refine)
+    Goal: name, category, description, status/labels, tech tags,
+    GitHub + Live Demo CTAs, large project visual.
+
+    Layout (w9+, 12-col grid):
+      Left (w9:col-span-7):
+        - Mono breadcrumb "Projects / {slug}".
+        - Eyebrow row: [pulsing accent dot] {category labels,
+          joined by " / "} · {year}.
+        - h1 project.name (.overpass, clamp(2.5rem, 6vw, 5rem),
+          semibold, tracking-[-0.02em], leading-[1.02]).
+        - project.tagline (text-[19px]→w8:text-[20px], leading
+          1.5, text-primary/90, max-w-[58ch]).
+        - project.description (text-[15px], text-muted, max-w
+          [60ch]).
+        - tech tags as <Pill> (max 8 visible; "+N" if more).
+        - Two CTAs row:
+            [primary]  "View code"  → project.github   (if not "#")
+            [ghost]    "Live demo"  → project.demo     (if not "#")
+          Both open _blank rel=noreferrer noopener. If a URL is
+          "#" / missing, the corresponding button is hidden, NOT
+          disabled. A copy of the GitHub URL as a small mono
+          link can sit below the buttons for accessibility.
+        - <Portrait/> byline (small, 32px, on the right of an
+          inline mono caption "by Akinola Victor").
+      Right (w9:col-span-5):
+        - <ProjectVisual/> (NEW, 2.2) — large procedural cover
+          that uses project.accent (the field already in the
+          data) as the dominant tint.
+
+    Animations: char/word stagger on the title (same pattern as
+    home hero), Pill row fade-in, scroll-triggered eyebrow
+    reveal. ≤ 1s total.
+
+2.2 ProjectVisual.jsx (NEW — place in src/components/projectDetail/)
+    Procedural cover that varies per project but stays within
+    the design system.
+    Props: { project }
+    Render a 16:10 rounded-2xl panel with:
+      - base color = color-mix(in srgb, project.accent 12%,
+                                var(--bg-elevated)).
+      - a soft radial gradient using project.accent in the top
+        right, fading to transparent.
+      - 3–5 floating "system" glyphs (small svg) at low opacity
+        positioned absolutely: agent circle, RAG ellipses,
+        code bracket, neural net nodes, terminal cursor.
+      - bottom-right: 2-line mono caption "/{project.slug}" and
+        a tiny accent dot, 11px.
+    No external images, no stock AI art. The visual should feel
+    like a generated system diagram panel, not a hero image.
+
+2.3 ProblemSolution.jsx (refine)
+    Two-column layout (w9:grid-cols-2, gap-8), each column a
+    bordered card with a mono eyebrow ("THE PROBLEM", "THE
+    SOLUTION"), an h3 title, and 1–3 short paragraphs.
+    - THE PROBLEM uses a rose-400 dot.
+    - THE SOLUTION uses the accent dot.
+    Below the cards, an optional inline mono caption:
+        "Why these two together → " followed by a one-sentence
+        bridge.
+
+2.4 Workflow.jsx (refine)
+    Visual process flow showing steps with arrows. Steps are
+    { label, blurb } objects from project.workflow.
+    Render:
+      - 5 steps in a horizontal flex row on w9+, each step a
+        pill-shaped card (rounded-2xl, border-subtle, bg-surface,
+        py-4 px-5).
+      - 1-digit step number in accent on the left of the label.
+      - label (.overpass, 16px, semibold).
+      - blurb (text-[12.5px], text-muted, leading 1.5, max-w
+        [22ch]).
+      - Between cards: a 1px line + a small → svg in
+        text-muted.
+    On mobile: stack vertically, hide the connector arrows.
+
+2.5 Architecture.jsx (refine)
+    Diagram + prose.
+    Layout (w9:grid-cols-12, gap-10):
+      Left (w9:col-span-7): a simple SVG architecture diagram
+        (hand-drawn, not D3). Render `nodes` as rounded
+        rectangles in a layered top-to-bottom layout:
+          - row 1 (Client / UI): browser, mobile, SDK.
+          - row 2 (Edge / Gateway): API gateway, auth.
+          - row 3 (Logic): the project-specific service boxes.
+          - row 4 (AI): model nodes, vector DB, tools.
+          - row 5 (Data / Infra): Postgres, cache, queue.
+        Use 1px stroke var(--border-subtle), fill
+        var(--bg-elevated), text mono 11px, var(--text-primary).
+        Lines connect adjacent layers; use the project.accent
+        for any line that involves an AI/model node.
+        Keep node count manageable (max ~10). Add a faint
+        dot-grid background via .bg-grid.
+      Right (w9:col-span-5): an ordered list of nodes with
+        small mono ordinals (01..N) and a 1-line description
+        of each ("Hybrid retriever (BM25 + dense)" etc.).
+
+2.6 Tech.jsx (refine)
+    A categorized tech stack display. `tech` is
+    { ai_ml, frontend, backend, database, infra, apis }.
+    Layout: a CSS grid of category cells, 2-col on w7+, 3-col
+    on w9+. Each cell:
+      - mono uppercase eyebrow "AI / ML" (mapped from
+        data category label).
+      - vertical list of items, each an inline mono item
+        prefixed with a small accent square.
+    Use subtle alternating bg (transparent / bg-elevated) to
+    help scanning.
+
+2.7 Decisions.jsx (refine)
+    Each decision: { title, choice, alternatives[], reason }.
+    Render as an accordion or a stack of bordered cards. Use
+    a stack of cards (not an accordion — easier to read and
+    more indexable).
+    Each card:
+      - h4 title (.overpass, 17px, semibold).
+      - row "Choice: <mono>{choice}</mono>" with a small accent
+        arrow.
+      - "Alternatives considered:" mono label + chips with each
+        alternative.
+      - "Reason:" 2–4 line prose.
+
+2.8 Metrics.jsx (refine)
+    Stat tiles. `metrics` is { label, value, suffix? }[].
+    Layout: 2-col on w6, 4-col on w9. Each tile:
+      - huge mono value (clamp(2rem, 4vw, 3rem)) with
+        var(--accent) color, semibold, the value + suffix in
+        one line.
+      - mono label below in 11px uppercase, text-muted.
+    Animate the value from 0 to the target on viewport entry
+    using gsap.from on a span[data-metric] with a 0→N count
+    tween (1s, ease power2.out, once). Honor reduced motion.
+    If a metric's value is not numeric, render the string
+    directly without tweening.
+
+2.9 Challenges.jsx (refine)
+    Each challenge: { title, what, fix }.
+    Render as a 2-col grid (w7+) or 1-col on mobile. Each card:
+      - small accent dot + mono ordinal.
+      - h4 title.
+      - "What happened:" mono label + 1-line prose.
+      - "How I fixed it:" mono label + 1-line prose.
+    Avoid wall-of-text; each "what/fix" line is 1–2 sentences.
+
+2.10 Results.jsx (refine)
+    Two stacked blocks: "Results" and "Future improvements".
+    - "Results" — body prose (project.results), max-w-[68ch],
+      text-[15.5px], leading-[1.7], text-muted.
+    - "Future improvements" — short bullet list of
+      project.future (one short sentence per bullet, mono
+      "→ " prefix).
+    Add a CTA cluster at the bottom of Results (still inside
+    the same section):
+      [primary] "View code"  → project.github (if not "#")
+      [ghost]   "Live demo"  → project.demo   (if not "#")
+      [ghost]   "All projects" → /projects
+    All three open in same tab except the first two, which
+    are external.
+
+2.11 NextProject.jsx (refine)
+    The closing navigation. A 12-col row:
+      Left half: prev project (or a faded placeholder if null)
+        with mono "← Previous" and the project name.
+      Right half: next project (or null placeholder)
+        with the project name and mono "Next →".
+    Both halves link to /projects/<slug>. They animate a faint
+    hover (background fade-in, arrow translates 4px on its axis).
+    Below the row: a single full-width "Back to all projects"
+    link to /projects (mono uppercase, text-muted hover text-accent).
+
+----------------------------------------------------------------
+3. DATA USAGE
+----------------------------------------------------------------
+- src/data/projects.js is the single source of truth. Do NOT
+  duplicate fields into the components.
+- Add to the data file (do not remove anything):
+    - export function getProjectNeighbors(slug) — returns
+      { prev, next } using the same logic as getAdjacentProjects.
+- `project.accent` is used to tint the visual. If absent,
+  fall back to var(--accent).
+
+----------------------------------------------------------------
+4. ANIMATION
+----------------------------------------------------------------
+- Hero: 0.7s char stagger on title, 0.5s eyebrow fade.
+- Section reveals: 0.5s ease power2.out, stagger 0.06, on
+  viewport entry. Each section manages its own gsap.context.
+- Metrics: 1s count tween (only on numeric values).
+- All honor prefers-reduced-motion (the revealOnScroll helper
+  does this; inline gsap calls must too).
+
+----------------------------------------------------------------
+5. RESPONSIVE BEHAVIOR
+----------------------------------------------------------------
+- < w7: single column for problem/solution, architecture
+  diagram, tech grid, decisions, metrics, challenges, results.
+  Workflow stacks vertically; connector arrows hidden.
+- w7 — w8: 2-col splits (problem/solution, decisions,
+  challenges, metrics).
+- ≥ w9: full layout as described above.
+
+----------------------------------------------------------------
+6. ACCESSIBILITY
+----------------------------------------------------------------
+- Each <section> has an aria-label.
+- Architecture diagram is decorative; provide a sr-only
+  <ul> summarizing the architecture nodes in reading order.
+- The two CTA buttons (GitHub / Live demo) must be reachable
+  in source order; do not visually reorder them in DOM.
+- Decision cards are not interactive; ensure they're still
+  landmarked properly with <h4> titles and clear hierarchy.
+- Color is never the only signal: the status dot always has
+  a text label.
+
+----------------------------------------------------------------
+7. DO NOT
+----------------------------------------------------------------
+- Do NOT add a comments section, like button, or share bar.
+- Do NOT add a "related projects" carousel — NextProject at
+  the bottom covers navigation.
+- Do NOT add a table of contents unless the project.workflow
+  is longer than 6 steps (none of the current dataset is).
+- Do NOT show the project.architecture as a <ul> in addition
+  to the diagram. The diagram carries the structure; the
+  right column is the legend.
+
+----------------------------------------------------------------
+8. ASSUMPTIONS
+----------------------------------------------------------------
+- getStaticPaths uses `fallback: false` (the dataset is
+  curated, not user-generated). Unknown slugs return 404.
+- project.github / project.demo are placeholders ("#")
+  while content is being developed. Buttons hide cleanly when
+  the value is "#" — do not show a "coming soon" tooltip.
+- project.accent is a CSS color string. If a project record
+  lacks it, fall back to var(--accent).
+- The architecture diagram is hand-laid per project via the
+  `architecture` array. It is NOT procedurally generated. The
+  array order is interpreted top-to-bottom; for nodes that
+  should be in the same layer, list them adjacent.
+- Each project.workflow[] entry has 4–6 steps. The component
+  must not break on 3 or 7 steps; it just renders what exists.
+- The hero is the only place the project visual lives. It does
+  not repeat inside the case study.
+- All "by Akinola Victor" bylines across project and article
+  detail pages render the same <Portrait/> primitive with
+  showByline={true} and size={32}.
+================================================================
