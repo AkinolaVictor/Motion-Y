@@ -1,4 +1,4 @@
-# Motion-Y AI Agency
+# Motion-Y
 
 **Architecting the intelligence layer for the modern enterprise.**
 

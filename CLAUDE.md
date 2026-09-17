@@ -1,61 +1,47 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this dev repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## What this repo is
-Pages currently present: `index.js` (stub "Home page"), `about.js` (empty), `api/hello.js` (placeholder). No tests, no Cursor/Copilot rules.
+## Common Commands
+- `npm run dev`: Start development server
+- `npm run build`: Build for production
+- `npm run start`: Start production server
+- `npm run lint`: Run ESLint
 
-## Introduction
-I am starting ot as an AI Engineer and this project is my portfolio website to help me demonstrate my drive in creating AI products, developing intelligent agentic systems, and building integrated skill workflows
+## Architecture
+Motion-Y is a high-end AI agency website built with a **data-driven architecture**.
 
-## Features
-Below are the web pages to be in this website
-pages
-  ├── Home
-  ├── /projects
-  ├── /projects/[slug]
-  ├── /about (include resumee)
-  ├── /lab
-  ├── /writing (blog)
-  └── /contact
+### Tech Stack
+- **Framework**: Next.js (Pages Router)
+- **Styling**: Tailwind CSS v4 (Dark-first, minimal, sophisticated)
+- **Animation**: GSAP + `ScrollTrigger` (Max 5s duration)
+- **State**: Redux Toolkit (Theme and global layout)
+- **Email**: Nodemailer (SMTP via Gmail)
 
-## Project layout
-```
-  src/
-  ├── pages/              Next.js Pages Router
-  │   ├── _app.js         Redux Provider + global refs
-  │   ├── _document.js    HTML shell + Google Fonts
-  │   ├── index.js        Home (stub)
-  │   ├── about.js        About (stub)
-  │   └── api/hello.js    API route (placeholder)
-  ├── redux/
-  │   ├── store.js        configureStore
-  │   └── slices/
-  │       └── generalSlice.js
-  └── styles/
-      └── globals.css     Tailwind v4 + theme tokens
-  public/                 Static assets (logos, favicon)
-```
+### Core Structure
+The project follows a strict separation of concerns:
+- `src/data/`: Centralized content (Services, Portfolio, Contact). This is the source of truth.
+- `src/components/`: Modular UI elements.
+    - `layout/`: Global shells (Navbar, PageShell).
+    - `primitives/`: Atomic elements (Button, Container, Pill).
+    - `[page]/`: Page-specific sections (e.g., `about/OurStory.jsx`).
+- `src/pages/`: Next.js routes that compose components.
+- `src/redux/`: Global state slices.
+- `src/styles/`: Global CSS and design tokens.
 
-<!--  -->
+**Data Flow**: `src/data/` $\rightarrow$ `src/components/` $\rightarrow$ `src/pages/`
 
+## Development Rules
+### Engineering Principles
+- **Sectional Build**: Each page must be built section by section, with each section in its own file.
+- **Layout**: Use Flexbox for all layouts unless strictly necessary otherwise.
+- **State**: Only introduce global state/slices if truly necessary.
+- **Documentation**: Every component must have a small commented-out description.
+- **Organization**: `components/` for UI, `utils/` for logic. Only add folders when necessary.
 
-## Development
-- make sure to always check the rules in the .claude folder before making any change to this project
-- When working on the frontend of a particular page, Ensure to check its corresponding prototype design in the #references section
-- Ensure to always ask me any question when necessary
-- make sure to follow through the /frontend-design skill installed globally
-
-
-## references
-Ensure to only read the files below when you referred to it by the development section, only open the document you need.
-- Home: @docs\HomeUI.md
-- Project: @docs\ProjectUI.md
-- Contact: @docs\ContactUI.md
-- Lab: @docs\LabUI.md
-- Project: @docs\ProjectUI.md
-- Writting: @docs\WrittingUI.md
-- About: @docs\AboutUI.md
-
-
-
+### UI & Style Guidelines
+- **Aesthetic**: Dark-first, minimal, technical, and futuristic but professional.
+- **Palette**: Near-black/charcoal background, soft-white primary text, muted gray secondary text, and one electric accent color (blue/cyan).
+- **Constraint**: Avoid excessive gradients, glassmorphism, neon effects, or stock AI imagery.
+- **Themes**: Implement dark, light, and system modes globally.
+- **Animation**: Only use GSAP. All animations must be "stunning and cool" and under 5s.

@@ -12,12 +12,12 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact — Akinola Victor · AI Engineer</title>
+        <title>Contact — Motion-Y</title>
         <meta
           name="description"
-          content="Get in touch with Akinola Victor — open to collaborations, product conversations, and opportunities in AI engineering."
+          content="Get in touch with Us — open to collaborations, product conversations, and opportunities in AI engineering."
         />
-        <meta property="og:title" content="Contact — Akinola Victor" />
+        <meta property="og:title" content="Contact — Motion-Y" />
         <meta
           property="og:description"
           content="Let's build something. Have an interesting AI problem? Start a conversation."

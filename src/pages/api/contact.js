@@ -200,6 +200,7 @@ export default async function handler(req, res) {
   try {
     const results = await Promise.allSettled([
       transporter.sendMail({
+        // from: `Motion-Y`,
         from: `Motion-Y <${process.env.NEXT_PUBLIC_USEMAIL}>`,
         // from: `process.env.NEXT_PUBLIC_USEMAIL`,
         to: "akinolavictor50@gmail.com",
@@ -208,6 +209,7 @@ export default async function handler(req, res) {
         text: buildOwnerText(clean),
       }),
       transporter.sendMail({
+        // from: `Motion-Y`,
         from: `Motion-Y <${process.env.NEXT_PUBLIC_USEMAIL}>`,
         // from: process.env.NEXT_PUBLIC_USEMAIL,
         to: email,

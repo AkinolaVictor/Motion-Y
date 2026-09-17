@@ -26,9 +26,9 @@ export default function ProjectDetailPage({ project, prev, next }) {
   return (
     <>
       <Head>
-        <title>{project.name} — Akinola Victor</title>
+        <title>{project.name} — Motion-Y</title>
         <meta name="description" content={project.tagline} />
-        <meta property="og:title" content={`${project.name} — Akinola Victor`} />
+        <meta property="og:title" content={`${project.name} — Motion-Y`} />
         <meta property="og:description" content={project.tagline} />
       </Head>
 
