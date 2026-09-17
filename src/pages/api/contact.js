@@ -125,6 +125,18 @@ function buildOwnerHtml({ name, email, type, message }) {
   `;
 }
 
+function buildOwnerText({ name, email, type, message }) {
+  return `New Project Inquiry from ${name}
+--------------------------------------------------
+Email: ${email}
+Type: ${typeLabel(type)}
+
+Message:
+${message}
+--------------------------------------------------
+Reply directly to this email to respond to the client.`;
+}
+
 function buildClientHtml({ name }) {
   const safe = escapeHtml(name);
   return `
@@ -142,11 +154,18 @@ function buildClientHtml({ name }) {
             A member of the Motion-Y team will contact you shortly to discuss how we can best support your objectives.
           </p>
           <p style="font-size:15px; line-height:1.7; color:#cfd2d8; margin:0 0 4px;">Regards,</p>
-          <p style="font-size:15px; line-height:1.4; color:#ffffff; margin:0; font-weight: 600;">Motion-Y</p>
+          <p style="font-size:15px; line-height:1.4; color:#ffffff; margin:0; font-weight: 600;">Motion-Y AI Agency</p>
+          <p style="font-family: 'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#7a7f87; margin:24px 0 0;">
+            This is an automated confirmation. Please do not reply to this message.
+          </p>
         </td></tr>
       </table>
     </div>
   `;
+}
+
+function buildClientText({ name }) {
+  return `Hello ${name},\n\nThank you for reaching out to Motion-Y.\n\nYour inquiry has been successfully delivered to our team. We have received your project details and are currently reviewing them.\n\nWe will contact you shortly to discuss how we can best support your objectives.\n\nRegards,\nMotion-Y`;
 }
 
 // --- Handler -----------------------------------------------------------------
@@ -173,7 +192,6 @@ export default async function handler(req, res) {
   }
   const { name, email } = clean;
 
-  // Nodemailer Transporter Setup
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -183,19 +201,20 @@ export default async function handler(req, res) {
   });
 
   try {
-    // Send both emails in parallel to avoid blocking and improve reliability
     const results = await Promise.allSettled([
       transporter.sendMail({
         from: process.env.NEXT_PUBLIC_USEMAIL,
         to: "akinolavictor50@gmail.com",
-        subject: `Project Inquiry: ${name}`,
-        html: buildOwnerHtml(clean),
+        subject: `Inquiry from ${name} regarding project`,
+        // html: buildOwnerHtml(clean),
+        text: buildOwnerText(clean),
       }),
       transporter.sendMail({
         from: process.env.NEXT_PUBLIC_USEMAIL,
         to: email,
-        subject: "Thank you for contacting Motion-Y",
-        html: buildClientHtml({ name }),
+        subject: `Thank you for contacting Motion-Y, ${name}`,
+        // html: buildClientHtml({ name }),
+        text: buildClientText({ name }),
       }),
     ]);
 
@@ -209,7 +228,6 @@ export default async function handler(req, res) {
       console.error("[contact] Client email failed:", clientResult.reason);
     }
 
-    // If both failed, return 500. If at least the owner got it, return 200.
     if (ownerResult.status === "rejected" && clientResult.status === "rejected") {
       throw new Error("Both email deliveries failed.");
     }
