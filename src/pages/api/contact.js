@@ -154,7 +154,7 @@ function buildClientHtml({ name }) {
             A member of the Motion-Y team will contact you shortly to discuss how we can best support your objectives.
           </p>
           <p style="font-size:15px; line-height:1.7; color:#cfd2d8; margin:0 0 4px;">Regards,</p>
-          <p style="font-size:15px; line-height:1.4; color:#ffffff; margin:0; font-weight: 600;">Motion-Y AI Agency</p>
+          <p style="font-size:15px; line-height:1.4; color:#ffffff; margin:0; font-weight: 600;">Motion-Y</p>
           <p style="font-family: 'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#7a7f87; margin:24px 0 0;">
             This is an automated confirmation. Please do not reply to this message.
           </p>
@@ -165,7 +165,7 @@ function buildClientHtml({ name }) {
 }
 
 function buildClientText({ name }) {
-  return `Hello ${name},\n\nThank you for reaching out to Motion-Y AI Agency.\n\nYour inquiry has been successfully delivered to our team. We have received your project details and are currently reviewing them.\n\nWe will contact you shortly to discuss how we can best support your objectives.\n\nRegards,\nMotion-Y AI Agency`;
+  return `Hello ${name},\n\nThank you for reaching out to Motion-Y.\n\nYour inquiry has been successfully delivered to our team. We have received your project details and are currently reviewing them.\n\nWe will contact you shortly to discuss how we can best support your objectives.\n\nRegards,\nMotion-Y`;
 }
 
 // --- Handler -----------------------------------------------------------------
