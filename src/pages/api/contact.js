@@ -183,10 +183,11 @@ export default async function handler(req, res) {
       user: process.env.NEXT_PUBLIC_USEMAIL,
       pass: process.env.NEXT_PUBLIC_USEPASS,
     },
-    
+
     connectionTimeout: 10000,
     host: "smtp.gmail.com",
     port: process.env.NEXT_PUBLIC_DEVELOPMENT_ENV=="local"?465:587,
+    // port: 587,
     secure: process.env.NEXT_PUBLIC_DEVELOPMENT_ENV=="local"?true:false,
     greetingTimeout: 10000,
     tls: {
@@ -194,7 +195,7 @@ export default async function handler(req, res) {
         rejectUnauthorized: false
     }
   });
-
+  
   try {
     // Send notification to owner
     const ownerMail = await transporter.sendMail({
