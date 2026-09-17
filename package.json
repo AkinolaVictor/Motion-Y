@@ -7,7 +7,7 @@
     "cld": "ollama launch claude",
     "opc": "ollama launch opencode",
     "dev2": "npx next dev --webpack",
-    "dev3": "next dev -p 3035",
+    "dev3": "next dev -p 3095",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
