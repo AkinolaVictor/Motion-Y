@@ -143,7 +143,7 @@ export default function ContactForm() {
             Message sent
           </p>
           <h3 className="overpass text-[24px] font-semibold tracking-tight text-[var(--text-primary)]">
-            Thanks — I'll reply soon.
+            Thanks — We'll reply soon.
           </h3>
           <p className="text-[14px] leading-[1.7] text-[var(--text-muted)]">
             Your message landed. Expect a reply within 48 hours, Monday to Friday. 

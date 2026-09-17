@@ -1,10 +1,10 @@
 // /api/contact — Next.js API route for the contact form.
-// Replaced Resend with Nodemailer for direct SMTP delivery.
+// Using Resend for high-deliverability transactional emails.
 // Sends two emails:
-//   1. Notification to the owner (akinolavictor50@gmail.com) with full details.
+//   1. Notification to the owner (CONTACT_TO) with full project details.
 //   2. Professional confirmation to the client.
 
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 // --- Validation -----------------------------------------------------------------
 
@@ -165,7 +165,7 @@ function buildClientHtml({ name }) {
 }
 
 function buildClientText({ name }) {
-  return `Hello ${name},\n\nThank you for reaching out to Motion-Y.\n\nYour inquiry has been successfully delivered to our team. We have received your project details and are currently reviewing them.\n\nWe will contact you shortly to discuss how we can best support your objectives.\n\nRegards,\nMotion-Y`;
+  return `Hello ${name},\n\nThank you for reaching out to Motion-Y AI Agency.\n\nYour inquiry has been successfully delivered to our team. We have received your project details and are currently reviewing them.\n\nWe will contact you shortly to discuss how we can best support your objectives.\n\nRegards,\nMotion-Y AI Agency`;
 }
 
 // --- Handler -----------------------------------------------------------------
@@ -192,28 +192,23 @@ export default async function handler(req, res) {
   }
   const { name, email } = clean;
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.NEXT_PUBLIC_USEMAIL,
-      pass: process.env.NEXT_PUBLIC_USEPASS,
-    },
-  });
+  const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
   try {
+    // Send both emails in parallel for better performance and reliability
     const results = await Promise.allSettled([
-      transporter.sendMail({
-        from: process.env.NEXT_PUBLIC_USEMAIL,
-        to: "akinolavictor50@gmail.com",
-        subject: `Inquiry from ${name} regarding project`,
-        // html: buildOwnerHtml(clean),
+      resend.emails.send({
+        from: process.env.NEXT_PUBLIC_RESEND_FROM || "Motion-Y <onboarding@resend.dev>",
+        to: process.env.NEXT_PUBLIC_CONTACT_TO || "akinolavictor50@gmail.com",
+        subject: `Project Inquiry: ${name}`,
+        html: buildOwnerHtml(clean),
         text: buildOwnerText(clean),
       }),
-      transporter.sendMail({
-        from: process.env.NEXT_PUBLIC_USEMAIL,
+      resend.emails.send({
+        from: process.env.NEXT_PUBLIC_RESEND_FROM || "Motion-Y <onboarding@resend.dev>",
         to: email,
         subject: `Thank you for contacting Motion-Y, ${name}`,
-        // html: buildClientHtml({ name }),
+        html: buildClientHtml({ name }),
         text: buildClientText({ name }),
       }),
     ]);
@@ -238,7 +233,7 @@ export default async function handler(req, res) {
       clientSent: clientResult.status === "fulfilled",
     });
   } catch (e) {
-    console.error("[contact] Critical mail delivery failure:", e);
+    console.error("[contact] Critical Resend delivery failure:", e);
     return res.status(500).json({
       ok: false,
       error: "Failed to deliver message. Please email us directly at akinolavictor50@gmail.com.",
