@@ -282,3 +282,44 @@ console.log(data.message.content);
 is there any other thing you need
 Ensure to show me your plan before starting
 
+i am setting up a RAG chatbot for my Motion-Y AI user Assistant,
+I need you to generate the texts for the document to use for embedding and storing in the database
+you can ask me any question as necessry
+
+
+
+i want to make this chatbot a RAG AI Assistant chatbot
+the data is stored in @RAG.txt file,
+use astraDB for the vector database
+i want to make it an agent capable of giving users the best of answers concerning
+-pricing, 
+-how we can help their company, like a technical expert
+-portfolio
+-basically to have a general and indepth way of being useful to the user
+also, i want it to have some functions/ability like:
+-being able to completely navigate the entire website, 
+-being able to search information from the portfolio, project, insights from the list of data present in the pages
+
+but i dont want you to build all this at once, let's do it one after the other
+start with the RAG implementation, (store the data in astraDB, and users can chat with it)
+i will tell you what next to do
+what other information do you need from me,
+let me see your plan before starting
+
+next, implement chat history feature as for the user at the front end
+
+
+access the db endpoint, token, keyspace through:
+process.env.ASTRA_DB_ENDPOINT
+process.env.ASTRA_DB_TOKEN
+process.env.ASTRA_DB_KEYSPACE
+
+
+when at the default chat screen (no chat made by the user yet),
+if a user types and send a message (as many times as possible), 
+it does not appear on the screen, 
+it simply just disappears from the input field,
+
+
+
+

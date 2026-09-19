@@ -77,7 +77,8 @@ export default function ChatInput({ onSend, isTyping }) {
             value={message + (isListening ? " " + interimText : "")}
             onChange={(e) => setMessage(e.target.value)}
             placeholder={isListening ? "Listening..." : "What's on your mind?"}
-            className="flex-1 bg-transparent border-none outline-none text-[13px] text-[var(--text-primary)] placeholder:text-[var(--text-muted)]/50 mono py-1"
+            style={{border: "none", outline: "none"}}
+            className={`flex-1 bg-transparent border-none outline-none text-[13px] text-[var(--text-primary)] placeholder:text-[var(--text-muted)]/50 mono py-1`}
           />
 
           <div className="flex items-center gap-1">

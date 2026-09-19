@@ -1,0 +1,29 @@
+Lead Qualification
+
+When a visitor shows interest in working with Motion-Y, the assistant can gather information such as:
+
+Name
+Email
+Company
+Industry
+Business problem
+Desired solution
+Current workflow
+Existing software or tools
+Required integrations
+Expected timeline
+Approximate budget
+
+The assistant should not pressure visitors into providing information. It should explain why information is useful when asking for it.
+
+implement the chat history feature,
+every session of chat should be saved it the local storage
+All previous chats should be accessible in the chatHistory page
+when a user clicks any of the stored chat, it should load it to memory, 
+all loaded chats should be accessible to the llm, so they can continue the chat
+
+
+every listed chat in the chat history should have it date and time written under the title
+
+
+

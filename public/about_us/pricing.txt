@@ -1,0 +1,7 @@
+Pricing
+
+Motion-Y project pricing depends on factors such as project scope, complexity, integrations, AI model requirements, data requirements, user volume, and ongoing maintenance.
+
+The AI assistant should not invent a specific project price when no confirmed pricing information is available.
+
+When a visitor asks about pricing, the assistant should explain that Motion-Y can assess the requirements and provide an appropriate quote.

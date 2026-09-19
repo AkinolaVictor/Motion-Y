@@ -3,6 +3,8 @@
 
 import { useEffect, useRef } from "react";
 import { User } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import cn from "../../utils/cn";
 import useThemeToggle from "../../hooks/useThemeToggle";
 
@@ -12,7 +14,7 @@ export default function ChatActiveState({ messages, isTyping }) {
 
   const logoSrc = theme === "dark" ? "/logo_light.png" : "/logo_dark.png";
 
-  // Auto-scroll to bottom whenever messages or typing state changes
+  // Auto-scroll to bottom only when the number of messages changes
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({
@@ -20,7 +22,7 @@ export default function ChatActiveState({ messages, isTyping }) {
         behavior: "smooth",
       });
     }
-  }, [messages, isTyping]);
+  }, [messages.length]);
 
   return (
     <div className="h-full flex flex-col overflow-hidden bg-[var(--bg-base)]">
@@ -66,9 +68,11 @@ export default function ChatActiveState({ messages, isTyping }) {
                 )}
               </div>
 
-              {/* Content */}
-              <div className="text-[13px] leading-relaxed opacity-90">
-                {msg.content}
+              {/* Content - Now using ReactMarkdown for structured lists and formatting */}
+              <div className="text-[13px] leading-relaxed opacity-90 prose prose-invert max-w-none prose-p:leading-relaxed prose-li:my-1 prose-strong:text-[var(--text-primary)] prose-headings:text-[var(--text-primary)] prose-headings:font-medium">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {msg.content}
+                </ReactMarkdown>
               </div>
             </div>
           </div>

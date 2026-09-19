@@ -8,6 +8,7 @@ import ChatHistory from "./ChatHistory";
 import ChatNewState from "./ChatNewState";
 import ChatActiveState from "./ChatActiveState";
 import ChatInput from "./ChatInput";
+import cn from "../../utils/cn";
 
 export default function ChatWindow({ onClose }) {
   const [view, setView] = useState("new"); // 'new' | 'active'
@@ -16,18 +17,17 @@ export default function ChatWindow({ onClose }) {
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const [currentChatId, setCurrentChatId] = useState(null);
-  const [history, setHistory] = useState({});
 
   // Load chat history from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem("motion_y_chat_history");
     if (saved) {
-      setHistory(JSON.parse(saved));
+      // History is available in localStorage
     }
   }, []);
 
   const saveChatToHistory = (msgs) => {
-    const currentHistory = JSON.parse(localStorage.getItem("motion_y_chat_history") || "{}");
+    const history = JSON.parse(localStorage.getItem("motion_y_chat_history") || "{}");
 
     // Create a title from the first user message
     const firstUserMsg = msgs.find(m => m.role === "user")?.content || "New Conversation";
@@ -35,14 +35,13 @@ export default function ChatWindow({ onClose }) {
 
     const chatId = currentChatId || Date.now().toString();
 
-    currentHistory[chatId] = {
+    history[chatId] = {
       title,
       messages: msgs,
       timestamp: new Date().toISOString(),
     };
 
-    localStorage.setItem("motion_y_chat_history", JSON.stringify(currentHistory));
-    setHistory(currentHistory);
+    localStorage.setItem("motion_y_chat_history", JSON.stringify(history));
     setCurrentChatId(chatId);
   };
 
@@ -52,20 +51,9 @@ export default function ChatWindow({ onClose }) {
     setView("new");
   };
 
-  const handleDeleteChat = (chatId) => {
-    const currentHistory = JSON.parse(localStorage.getItem("motion_y_chat_history") || "{}");
-    delete currentHistory[chatId];
-    localStorage.setItem("motion_y_chat_history", JSON.stringify(currentHistory));
-    setHistory(currentHistory);
-
-    if (currentChatId === chatId) {
-      handleNewChat();
-    }
-  };
-
   const handleLoadChat = (chatId) => {
-    const currentHistory = history;
-    const chat = currentHistory[chatId];
+    const history = JSON.parse(localStorage.getItem("motion_y_chat_history") || "{}");
+    const chat = history[chatId];
     if (chat) {
       setMessages(chat.messages);
       setCurrentChatId(chatId);
@@ -96,7 +84,7 @@ export default function ChatWindow({ onClose }) {
         body: JSON.stringify({ messages: newMsgs }),
       });
 
-      if (!response.ok) {
+      if (!// response.ok) {
         throw new Error(`API Error: ${response.status}`);
       }
 
@@ -124,6 +112,7 @@ export default function ChatWindow({ onClose }) {
         await new Promise(resolve => setTimeout(resolve, 40));
       }
 
+      // Save the completed conversation to local storage
       const completedConversation = [...newMsgs, { role: "assistant", content: fullContent }];
       saveChatToHistory(completedConversation);
 
@@ -172,10 +161,8 @@ export default function ChatWindow({ onClose }) {
         isOpen={isHistoryOpen}
         onClose={() => setIsHistoryOpen(false)}
         onLoadChat={handleLoadChat}
-        onDeleteChat={handleDeleteChat}
         onClearHistory={() => {
           localStorage.removeItem("motion_y_chat_history");
-          setHistory({});
           setIsHistoryOpen(false);
         }}
       />
