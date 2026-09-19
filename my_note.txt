@@ -249,3 +249,36 @@ what is the problem, fix it
 
 make the logo being used at the ChatHeader.txt and the ChatActiveState.txt files to respond accordingly to the website theme: /logo_light.png for dark mode, /logo_dark.png for light mode
 
+
+Now lets connect the chat interface using Ollama so user actually chats with an LLM
+connect it to this ollama claude model: gemma4:31b-cloud
+i already stored the API key as an environment variable (OLLAMA_API_KEY)
+
+dont use localhost,
+here's a sample of how to connect remotely:
+
+const response = await fetch("https://ollama.com/api/chat", {
+  method: "POST",
+  headers: {
+    Authorization: `Bearer ${process.env.OLLAMA_API_KEY}`,
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "gemma4:31b",
+    messages: [
+      {
+        role: "user",
+        content: "Hello!"
+      }
+    ],
+    stream: false
+  })
+});
+
+const data = await response.json();
+
+console.log(data.message.content);
+
+is there any other thing you need
+Ensure to show me your plan before starting
+

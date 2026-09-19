@@ -22,27 +22,43 @@ export default function ChatWindow({ onClose }) {
     setView("new");
   };
 
-  const handleStartChat = (text) => {
+  const handleStartChat = async (text) => {
     setView("active");
-    setMessages([
-      { role: "user", content: text },
-      { role: "assistant", content: "I'm processing that request... (UI Only Mode)" }
-    ]);
+    // Directly call handleSend to initiate the real AI interaction
+    await handleSend(text);
   };
 
-  const handleSend = (text) => {
-    const newMsgs = [...messages, { role: "user", content: text }];
+  const handleSend = async (text) => {
+    const userMsg = { role: "user", content: text };
+    const newMsgs = [...messages, userMsg];
     setMessages(newMsgs);
     setIsTyping(true);
 
-    // Simulate a response since backend is not implemented
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: newMsgs }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+      }
+
+      const data = await response.json();
       setMessages(prev => [...prev, {
         role: "assistant",
-        content: "This is a UI demonstration. The agent backend will be connected in the next phase!"
+        content: data.content
       }]);
+    } catch (err) {
+      console.error("Chat Error:", err);
+      setMessages(prev => [...prev, {
+        role: "assistant",
+        content: "Sorry, I'm having trouble connecting to my brain right now. Please try again later."
+      }]);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   return (

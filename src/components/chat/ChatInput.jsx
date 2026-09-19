@@ -18,7 +18,6 @@ export default function ChatInput({ onSend, isTyping }) {
     setIsSupported(isSTTSupported());
   }, []);
 
-  console.log("Test reco")
 
   const handleSubmit = (e) => {
     e.preventDefault();
