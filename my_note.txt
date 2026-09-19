@@ -171,3 +171,81 @@ As the AI landscape shifted from simple prompts to autonomous agents, we recogni
 
 
 
+i want to create a chat bot agent for this website
+start by creating the icon that opens the chat interface
+position it at the bottom right of the screen on a new layer where it is always static at that position
+the icon: position the website icon at the center of a circular container, ensure to choose the right icon based on the theme,
+also the circular container background must only toggle between light and dark base on the current preffered theme
+when this button is clicked upon, the icon in it should change to X, to represent it's already clicked and can only be closed, or vice-versa
+i will give you further details on building the actual chat interface, later
+lets do this now
+
+
+suggestions
+Let there some chat suggestions that help the user to know the purpose of the icon,
+check through this UI photo as an example: @"chat_interface/suggestive chat.jpg"
+this should only appear by default and should automatically disappear whenever the chat icon is clicked
+however, it should also have its own X button that lets user close it only (without necessarily clicking the chat icon)
+
+
+THE CHAT INTERFACE
+
+Here's the main UI for the chat interface (New Chat)
+Open this photo to view it: @chat_interface/core_chat.jpg
+When a user clicks on the X icon, it should close the chat UI
+i want it to look exactly the same
+
+When a user clicks on the 3-dotted icon, it should display a menu
+the menu should appear like the exactly as in this photo: @chat_interface/chat_menu.jpg
+i want it to look exactly the same
+
+
+When a user clicks on the "View History" option in the menu, it should display a side menu
+the side menu should slide in like in this photo: @chat_interface/chat_history.jpg
+i want it to look exactly the same
+
+When a user clicks on the "New Chat" option in the menu, 
+create a new chat and display the default chat screen
+page in this photo: @chat_interface/core_chat.jpg
+
+When a user engages in a chat with the agent, 
+here is what the UI should look like in this photo: @chat_interface/active_chat.jpg
+i want it to look exactly the same
+
+let me see your plan before starting
+Ensure to follow with the UI design system of the project
+
+the chat menu (ChatMenu.jsx file) component does not agree with the system dark and light mode, fix it
+
+at the chat header, when the user is connected to the internet, it should show online, but when the user is not connected to the internet, it should show offline
+
+
+i can't see the lower input section
+
+
+i want us to take a more strategic approach,
+by default make use of whisper, 
+but wheneve whisper runs out of access (due to money), you automatically switch to the Native web speech API
+can you do this?
+
+
+
+i don't want this approach anymore,
+i was you to only use the Native Web speech approach here is how you'll go about it:
+if a browser does not support the native web speech, hide the microphone icon at the front end,
+otherwise, let them have access to it and make good use of it.
+let me see your plan before starting
+
+
+Good, i want my word to be pushed to the input field in real time
+also, only when i toggle the microphone icon should the listening be active/stopped (No Automatic Stopping)
+
+you have do a great job, i want you to do some more changes.
+Each time i talk again after a short pause, it completely clear away the existing texts in the input field, and put in the newly said words, i don't like this behaviour, fix it
+
+
+it keeps duplicating words multiple times (so many),
+what is the problem, fix it
+
+make the logo being used at the ChatHeader.txt and the ChatActiveState.txt files to respond accordingly to the website theme: /logo_light.png for dark mode, /logo_dark.png for light mode
+
