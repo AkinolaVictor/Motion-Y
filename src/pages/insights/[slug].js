@@ -28,11 +28,12 @@ export default function ArticleDetailPage({ article, prev, next, related }) {
   return (
     <>
       <Head>
-        <title>{article.title} — Motion-Y</title>
+        <title>{article.title} — Motion-Y | AI Insights</title>
         <meta name="description" content={article.excerpt} />
         <meta property="og:title" content={`${article.title} — Motion-Y`} />
         <meta property="og:description" content={article.excerpt} />
         <meta property="og:type" content="article" />
+        <link rel="canonical" href={`https://motion-y.ai/insights/${article.slug}`} />
       </Head>
 
       <PageShell>

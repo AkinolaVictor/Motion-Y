@@ -34,8 +34,12 @@ export default function ServicePage() {
   return (
     <>
       <Head>
-        <title>{service.title} — Motion-Y</title>
+        <title>{service.title} — Motion-Y | AI Engineering Services</title>
         <meta name="description" content={service.description} />
+        <meta property="og:title" content={`${service.title} — Motion-Y`} />
+        <meta property="og:description" content={service.description} />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href={`https://motion-y.ai/services/${slug}`} />
       </Head>
 
       <PageShell>

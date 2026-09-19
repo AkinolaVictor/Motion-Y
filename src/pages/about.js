@@ -17,17 +17,18 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About — Motion-Y AI Agency</title>
+        <title>About — Motion-Y | AI Engineering Agency</title>
         <meta
           name="description"
-          content="Motion-Y is an AI engineering agency dedicated to transforming business operations through autonomous agents and scalable automation."
+          content="Learn how Motion-Y transforms business operations through autonomous AI agents, scalable automation, and intelligent software engineering."
         />
-        <meta property="og:title" content="About — Motion-Y" />
+        <meta property="og:title" content="About Motion-Y | AI Engineering Agency" />
         <meta
           property="og:description"
-          content="Architecting the intelligence layer for the modern enterprise."
+          content="Architecting the intelligence layer for the modern enterprise. Discover our vision, mission, and approach to AI."
         />
         <meta property="og:type" content="profile" />
+        <link rel="canonical" href="https://motion-y.ai/about" />
       </Head>
 
       <PageShell>

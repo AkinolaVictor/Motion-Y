@@ -12,17 +12,18 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact — Motion-Y</title>
+        <title>Contact — Motion-Y | AI Consulting & Engineering</title>
         <meta
           name="description"
-          content="Get in touch with Us — open to collaborations, product conversations, and opportunities in AI engineering."
+          content="Start a conversation with Motion-Y. We are open to collaborations, AI product consultations, and enterprise automation opportunities."
         />
-        <meta property="og:title" content="Contact — Motion-Y" />
+        <meta property="og:title" content="Contact Motion-Y | AI Consulting" />
         <meta
           property="og:description"
-          content="Let's build something. Have an interesting AI problem? Start a conversation."
+          content="Have an interesting AI problem? Let's build a solution together. Contact the Motion-Y team today."
         />
         <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://motion-y.ai/contact" />
       </Head>
 
       <PageShell>

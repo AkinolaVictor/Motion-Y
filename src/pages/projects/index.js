@@ -1,3 +1,5 @@
+// /projects/index — Portfolio home.
+// Displays the project catalog with category filtering and search.
 
 import Head from "next/head";
 import { useId, useMemo, useState } from "react";
@@ -50,11 +52,18 @@ export default function ProjectsPage() {
   return (
     <>
       <Head>
-        <title>Projects — Motion-Y</title>
+        <title>AI Portfolio | Intelligent Software & Automations — Motion-Y</title>
         <meta
           name="description"
-          content="Explore AI systems and intelligent applications built by Motion-Y to solve real-world challenges.."
+          content="Explore a showcase of high-end AI systems, autonomous agents, and intelligent applications built by Motion-Y to solve complex real-world business challenges."
         />
+        <meta property="og:title" content="AI Portfolio — Motion-Y" />
+        <meta
+          property="og:description"
+          content="Discover how Motion-Y implements cutting-edge AI and automation to drive measurable business results."
+        />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://motion-y.ai/projects" />
       </Head>
 
       <PageShell>
@@ -71,10 +80,8 @@ export default function ProjectsPage() {
                   <span className="absolute inset-0 rounded-full bg-[var(--accent)]" />
                 </span>
                 Works
-                {/* <span className="text-[var(--text-muted)]/50">/</span> */}
-                {/* <span className="text-[var(--text-muted)]/80">2024—26</span> */}
               </p>
-    
+
               <div className="flex flex-col gap-4 w9:flex-row w9:items-end w9:justify-between">
                 <h1
                   id="projects-title"
@@ -82,15 +89,12 @@ export default function ProjectsPage() {
                 >
                   Projects.
                 </h1>
-                {/* <p className="mono max-w-[58ch] text-[12px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
-                  {counts?.total ?? 0} entries · {CATEGORIES.length - 1} categories
-                </p> */}
               </div>
-    
+
               <p className="max-w-[60ch] text-[17px] w8:text-[18px] leading-[1.65] text-[var(--text-muted)]">
                 A showcase of AI systems, intelligent applications, and tools built to explore ideas, solve real-world challenges, and push the boundaries of what’s possible with AI.
               </p>
-    
+
               {/* Filter pills */}
               <div role="tablist" aria-label="Filter projects by category" className="flex flex-wrap gap-2">
                 {CATEGORIES.map((c) => {
@@ -144,6 +148,8 @@ export default function ProjectsPage() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinecap="round"
                 strokeLinecap="round"
                 className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--text-muted)]"
               >
@@ -201,11 +207,9 @@ export default function ProjectsPage() {
               </div>
             ) : (
               <ul className="flex flex-col">
-                {visible.map((p, i) => (
-                  <li key={p.slug}>
-                    <ProjectListItem project={p} index={i} />
-                  </li>
-                ))}
+              {visible.map((p, i) => (
+                <ProjectListItem project={p} index={i} />
+              ))}
               </ul>
             )}
             <div className="hairline mt-2" />

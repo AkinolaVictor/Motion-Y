@@ -26,10 +26,12 @@ export default function ProjectDetailPage({ project, prev, next }) {
   return (
     <>
       <Head>
-        <title>{project.name} — Motion-Y</title>
+        <title>{project.name} — Motion-Y | AI Portfolio</title>
         <meta name="description" content={project.tagline} />
         <meta property="og:title" content={`${project.name} — Motion-Y`} />
         <meta property="og:description" content={project.tagline} />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href={`https://motion-y.ai/projects/${project.slug}`} />
       </Head>
 
       <PageShell>

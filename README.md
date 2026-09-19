@@ -40,7 +40,7 @@ The central thesis of Motion-Y is that AI is only as valuable as the system it l
 
 ### Backend & Integration
 - **API Routes**: Next.js Serverless functions.
-- **Communication**: Resend API for professional, transactional email delivery via the contact form.
+- **Communication**: Nodemailer (SMTP via Gmail) for professional, transactional email delivery via the contact form.
 - **Data Layer**: Data-driven architecture utilizing centralized JS configuration files (`src/data/`).
 
 ---
@@ -86,9 +86,9 @@ src/
 3. **Environment Setup**
    Create a `.env.local` file in the root directory:
    ```env
-   RESEND_API_KEY=re_your_api_key_here
-   NEXT_PUBLIC_RESEND_FROM="Motion-Y <hello@yourdomain.com>"
-   NEXT_PUBLIC_CONTACT_TO="your-email@gmail.com"
+   EMAIL_USER=your-gmail@gmail.com
+   EMAIL_PASS=your-app-password
+   CONTACT_EMAIL=your-recipient@gmail.com
    ```
 
 4. **Run the development server**

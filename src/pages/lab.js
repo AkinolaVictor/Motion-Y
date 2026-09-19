@@ -72,11 +72,18 @@ export default function LabPage() {
   return (
     <>
       <Head>
-        <title>Lab — Akinola Victor</title>
+        <title>AI Lab — Motion-Y | AI Experiments & Innovation</title>
         <meta
           name="description"
-          content="An experimental playground for exploring AI systems, testing ideas, and learning through building."
+          content="Explore the Motion-Y AI Lab: an experimental playground for autonomous agents, LLM testing, and intelligent software research."
         />
+        <meta property="og:title" content="AI Lab — Motion-Y Innovation" />
+        <meta
+          property="og:description"
+          content="A deep dive into the experiments, failures, and breakthroughs of the Motion-Y AI laboratory."
+        />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://motion-y.ai/lab" />
       </Head>
 
       <PageShell>
