@@ -7,7 +7,7 @@ import Container from "../primitives/Container";
 import SectionHeader from "../primitives/SectionHeader";
 
 const STEPS = [
-  ["Idea",      "Capture the problem, not the solution."],
+  ["Idea",      "Capture the problem."],
   ["Research",  "Survey prior art, papers, and product analogs."],
   ["Plan",      "Define scope, success metrics, and constraints."],
   ["Architect", "Sketch data flow, interfaces, and failure modes."],

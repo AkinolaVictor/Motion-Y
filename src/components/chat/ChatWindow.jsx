@@ -22,7 +22,29 @@ export default function ChatWindow({ onClose }) {
   useEffect(() => {
     const saved = localStorage.getItem("motion_y_chat_history");
     if (saved) {
-      setHistory(JSON.parse(saved));
+      const history = JSON.parse(saved);
+      setHistory(history);
+
+      // Resume most recent chat if it's newer than 10 minutes
+      const chatIds = Object.keys(history);
+      if (chatIds.length > 0) {
+        const mostRecentId = chatIds.sort((a, b) =>
+          new Date(history[b].timestamp) - new Date(history[a].timestamp)
+        )[0];
+
+        const lastChat = history[mostRecentId];
+        const lastTimestamp = new Date(lastChat.timestamp).getTime();
+        const now = Date.now();
+        const tenMinutesInMs = 20 * 60 * 1000;
+
+        if (now - lastTimestamp < tenMinutesInMs) {
+          setMessages(lastChat.messages);
+          setCurrentChatId(mostRecentId);
+          setView("active");
+        } else {
+          handleNewChat();
+        }
+      }
     }
   }, []);
 

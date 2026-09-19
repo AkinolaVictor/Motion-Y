@@ -8,8 +8,8 @@ export default function Document() {
         {/* Favicons — theme-aware using media queries for system preferences.
             Manual theme toggles are handled via client-side state, but this provides
             the correct defaults for the browser. */}
-        <link rel="icon" href="/logo_dark.png" media="(prefers-color-scheme: light)" />
-        <link rel="icon" href="/logo_light.png" media="(prefers-color-scheme: dark)" />
+        <link rel="icon" href="/logo_rounded_dark.png" media="(prefers-color-scheme: dark)" />
+        <link rel="icon" href="/logo_rounded_light.png" media="(prefers-color-scheme: light)" />
         <link rel="icon" href="/logo_dark.png" sizes="32x32" />
         <link rel="apple-touch-icon" sizes="180x180" href="/logo_dark.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
