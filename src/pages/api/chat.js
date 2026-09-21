@@ -58,6 +58,36 @@ export default async function handler(req, res) {
     ${combinedKnowledge}
 
     `;
+    // console.log(countTexts())
+    function countTexts(){
+      const messa = [...messages]
+      let char_estimate = 0
+      let word_estimate = 0
+      for(let i=0; i<messa.length; i++){
+        const content = messa[i]?.content
+        if(!content) continue
+
+        char_estimate+=content.length
+
+        const count_word = content.split(" ").length
+        word_estimate=word_estimate+count_word
+      }
+
+      const propmt_char_len = systemPrompt.length
+      const prompt_word_len = systemPrompt.split(" ").length
+
+      const total_word = word_estimate+prompt_word_len
+      const total_char = char_estimate+propmt_char_len
+
+      return {
+        char_estimate, 
+        word_estimate,
+        propmt_char_len,
+        prompt_word_len,
+        total_char,
+        total_word
+      }
+    }
 
     const messagesWithContext = [
       { role: 'system', content: systemPrompt },
@@ -66,7 +96,7 @@ export default async function handler(req, res) {
 
     const isLocal = process.env.NEXT_PUBLIC_DEVELOPMENT_ENV === "local";
     const use_API = isLocal ? "http://localhost:11434" : "https://ollama.com";
-
+    const model = isLocal ? "gpt-oss:120b-cloud" : "gemma4:31b-cloud";
     const response = await fetch(`${use_API}/api/chat`, {
       method: 'POST',
       headers: isLocal ? {
@@ -76,7 +106,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-         model: 'gemma4:31b-cloud',
+         model,
         messages: messagesWithContext,
         stream: false,
       }),

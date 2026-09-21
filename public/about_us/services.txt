@@ -62,3 +62,6 @@ RAG can be useful for company websites, internal knowledge systems, customer-sup
 documentation assistants, product knowledge bases, and document-based AI applications.
 
 A RAG system can use sources such as company documents, FAQs, product information, policies, manuals, websites, and databases.
+
+Also, let them know we do projects fast enough, 
+All projects can be finished from between 1-6 weeks 

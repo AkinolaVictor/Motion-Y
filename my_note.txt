@@ -323,3 +323,17 @@ it simply just disappears from the input field,
 
 
 
+i want to create a agent assistant for my agency website,
+what are best system prompts to give to it, best rules and best guidelines for a professional agency website
+
+
+
+i want to create functions for the AI agents:
+i want the AI agent to be able to create forms to help for leads, to be able to interact with the user.
+as a case: if the agent has a list of questions to ask the user, instead of expecting a text response from the user,
+it should present those lead questions to the user in a form, 
+for example if a user want to do a project, and the agent want to generate lead questions like: 
+The Business Problem, The Current Workflow, The Desired Outcome, The Target User, Constraints,
+all these questions should be in a form, with a button to submit
+i need a function the agent can call for this?
+let me see your plan before building?
