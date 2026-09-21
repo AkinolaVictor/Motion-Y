@@ -2,29 +2,39 @@ Services
 
 Motion-Y provides the following core services:
 
-AI Agents and Systems
+1. AI Agents and Systems:
+Motion-Y builds AI agents and intelligent systems that can understand information, 
+reason through tasks, use tools, retrieve knowledge, and perform actions.
 
-Motion-Y builds AI agents and intelligent systems that can understand information, reason through tasks, use tools, retrieve knowledge, and perform actions.
+AI agents can be designed for customer support, lead qualification, internal operations, 
+research, sales assistance, knowledge management, document processing, and other business workflows.
 
-AI agents can be designed for customer support, lead qualification, internal operations, research, sales assistance, knowledge management, document processing, and other business workflows.
-
-AI Automations
-
+2. AI Automations:
 Motion-Y automates repetitive business processes using AI, APIs, workflows, and integrations.
 
-Examples include automated customer communication, lead follow-ups, document processing, data extraction, reporting, notifications, content workflows, and internal business processes.
+Examples include automated customer communication, lead follow-ups, document processing, data extraction, 
+reporting, notifications, content workflows, and internal business processes.
 
-Intelligent Software
-
+3. Intelligent Software:
 Motion-Y builds custom web applications and software products with AI capabilities integrated directly into the product experience.
 
-Examples include AI-powered SaaS products, internal business applications, intelligent dashboards, AI search systems, recommendation systems, document-processing applications, and customer-facing AI interfaces.
+Examples include AI-powered SaaS products, internal business applications, intelligent dashboards, 
+AI search systems, recommendation systems, document-processing applications, and customer-facing AI interfaces.
 
-AI Consulting
-
+4. AI Consulting:
 Motion-Y helps businesses identify practical opportunities for AI adoption.
 
-Consulting can include AI strategy, workflow analysis, automation opportunities, technology selection, AI architecture, RAG planning, agent design, and implementation planning.
+Consulting can include AI strategy, workflow analysis, automation opportunities, technology selection, 
+AI architecture, RAG planning, agent design, and implementation planning.
+
+5. API Integrations:
+Motion-Y connects AI systems and software applications to existing business tools and third-party services through APIs, 
+webhooks, and custom integrations.
+
+Integrations can connect AI systems with CRMs, databases, communication platforms, 
+business applications, websites, and other software.
+
+
 
 Managed AI
 
@@ -32,24 +42,23 @@ Motion-Y can help businesses maintain and improve their AI systems after impleme
 
 Managed AI may include monitoring, optimization, improvements, integrations, knowledge-base updates, and ongoing technical support.
 
-API Integrations
-
-Motion-Y connects AI systems and software applications to existing business tools and third-party services through APIs, webhooks, and custom integrations.
-
-Integrations can connect AI systems with CRMs, databases, communication platforms, business applications, websites, and other software.
 
 AI Agents
 
-An AI agent is a software system that can use an AI model together with instructions, knowledge, tools, and actions to accomplish tasks.
+An AI agent is a software system that can use an AI model together with instructions, 
+knowledge, tools, and actions to accomplish tasks.
 
-A business AI agent can do more than answer questions. Depending on its configuration, it can retrieve information, search databases, call APIs, create records, send notifications, qualify leads, schedule actions, process documents, and interact with other software.
+A business AI agent can do more than answer questions. Depending on its configuration, 
+it can retrieve information, search databases, call APIs, create records, send notifications, 
+qualify leads, schedule actions, process documents, and interact with other software.
 
 Motion-Y can design AI agents around specific business workflows rather than using a generic chatbot for every situation.
 
 Retrieval-Augmented Generation
+RAG, or Retrieval-Augmented Generation, allows an AI system to retrieve relevant information 
+from a company's knowledge base before generating an answer.
 
-RAG, or Retrieval-Augmented Generation, allows an AI system to retrieve relevant information from a company's knowledge base before generating an answer.
-
-RAG can be useful for company websites, internal knowledge systems, customer-support assistants, documentation assistants, product knowledge bases, and document-based AI applications.
+RAG can be useful for company websites, internal knowledge systems, customer-support assistants, 
+documentation assistants, product knowledge bases, and document-based AI applications.
 
 A RAG system can use sources such as company documents, FAQs, product information, policies, manuals, websites, and databases.

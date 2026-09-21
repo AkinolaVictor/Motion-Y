@@ -1,7 +1,6 @@
 Lead Qualification
 
-When a visitor shows interest in working with Motion-Y, the assistant can gather information such as:
-
+When a visitor shows interest in working with Motion-Y, Make sure to gather necessary information like:
 Name
 Email
 Company
@@ -13,19 +12,6 @@ Existing software or tools
 Required integrations
 Expected timeline
 Approximate budget
+ANY OTHER NECESSARY INFORMATION
 
-The assistant should not pressure visitors into providing information. It should explain why information is useful when asking for it.
-
-implement the chat history feature,
-every session of chat should be saved it the local storage
-All previous chats should be accessible in the chatHistory page
-when a user clicks any of the stored chat, it should load it to memory, 
-all loaded chats should be accessible to the llm, so they can continue the chat
-
-
-every listed chat in the chat history should have it date and time written under the title
-
-when a user already engages in a chat but then close the chat window,
-when they open the chat window again, it should resume the most recent chat
-however, if the most recent chat is older than 10 minutes, when the chat window is reopened, it should start a new chat over
-
+You should not pressure visitors into providing information. you should explain why information is useful when asking for it.

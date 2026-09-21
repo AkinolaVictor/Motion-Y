@@ -1,7 +1,7 @@
 Business Use Cases
 
-Motion-Y can build AI solutions for use cases such as:
-
+Motion-Y can build AI solutions (within the services offered ) for use cases such as:
+(Here's a list of what is possible, but please note that Motion-Y can do more)
 Website customer assistants
 Lead qualification
 Customer support
@@ -18,9 +18,12 @@ Data extraction
 CRM automation
 Follow-up automation
 Industries
+...and more
+
+
 
 Motion-Y's AI solutions can be adapted to different industries, including:
-
+(Here's a list of what is possible, but please note that Motion-Y can do more)
 Real estate
 Healthcare
 Legal services

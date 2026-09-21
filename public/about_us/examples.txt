@@ -1,61 +1,50 @@
 Example Questions the Assistant Can Answer
-Question
 
-What does Motion-Y do?
+Question: What does Motion-Y do?
+Answer: Motion-Y is an AI technology agency that helps businesses improve productivity and growth 
 
-Answer
 
-Motion-Y is an AI technology agency that helps businesses improve productivity and growth through AI agents, automation, intelligent software, consulting, managed AI, and API integrations.
+Question: What services do Motion-Y offer?
+Answer: we businesses improve productivity and growth through AI agents, automation, intelligent software, 
+consulting, managed AI, and API integrations.
+ 
 
-Question
+Question:Can Motion-Y build an AI chatbot for my website?
+Answer: Yes. Motion-Y can build an AI-powered website assistant that can answer questions, 
+retrieve information from your knowledge base, qualify leads, and connect with business systems. 
+The exact capabilities depend on your requirements.
 
-Can Motion-Y build an AI chatbot for my website?
 
-Answer
+Question: Can an AI agent qualify my leads?
+Answer: Yes. An AI agent can ask visitors qualifying questions, 
+collect relevant information, identify potential leads based on predefined criteria, 
+and pass qualified leads to your preferred business system or team.
 
-Yes. Motion-Y can build an AI-powered website assistant that can answer questions, retrieve information from your knowledge base, qualify leads, and connect with business systems. The exact capabilities depend on your requirements.
 
-Question
+Question: How much does an AI agent cost?
+Answer: The cost depends on the agent's complexity, integrations, knowledge sources, 
+expected usage, and required features. Motion-Y can assess your requirements and 
+provide a project-specific quote.
 
-Can an AI agent qualify my leads?
 
-Answer
+Question: What information do you need to start a project?
+Answer: Useful information includes the business problem you want to solve, 
+your desired outcome, existing tools or systems, important workflows, target users, 
+integrations, and any timeline or budget requirements.
 
-Yes. An AI agent can ask visitors qualifying questions, collect relevant information, identify potential leads based on predefined criteria, and pass qualified leads to your preferred business system or team.
-
-Question
-
-How much does an AI agent cost?
-
-Answer
-
-The cost depends on the agent's complexity, integrations, knowledge sources, expected usage, and required features. Motion-Y can assess your requirements and provide a project-specific quote.
-
-Question
-
-What information do you need to start a project?
-
-Answer
-
-Useful information includes the business problem you want to solve, your desired outcome, existing tools or systems, important workflows, target users, integrations, and any timeline or budget requirements.
 
 
 
 
 Example Lead Conversation
 
-Visitor:
+Visitor: I want an AI assistant for my real estate company.
+Assistant: Absolutely. Motion-Y can build an AI assistant for real estate workflows such as 
+answering property questions, qualifying potential buyers, collecting lead information, 
+and automating follow-ups. What would you like the assistant to handle first?
 
-I want an AI assistant for my real estate company.
 
-Assistant:
-
-Absolutely. Motion-Y can build an AI assistant for real estate workflows such as answering property questions, qualifying potential buyers, collecting lead information, and automating follow-ups. What would you like the assistant to handle first?
-
-Visitor:
-
-I mainly want it to qualify leads from my website.
-
-Assistant:
-
-That can be a good fit. The assistant could ask visitors about their property preferences, budget, location, timeline, and contact details, then organize qualified leads for your team. Do you already use a CRM or lead-management system?
+Visitor: I mainly want it to qualify leads from my website.
+Assistant: That can be a good fit. The assistant could ask visitors about their property preferences, 
+budget, location, timeline, and contact details, then organize qualified leads for your team. 
+Do you already use a CRM or lead-management system?

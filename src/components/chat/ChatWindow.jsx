@@ -35,7 +35,7 @@ export default function ChatWindow({ onClose }) {
         const lastChat = history[mostRecentId];
         const lastTimestamp = new Date(lastChat.timestamp).getTime();
         const now = Date.now();
-        const tenMinutesInMs = 20 * 60 * 1000;
+        const tenMinutesInMs = 60 * 60 * 1000;
 
         if (now - lastTimestamp < tenMinutesInMs) {
           setMessages(lastChat.messages);

@@ -22,13 +22,27 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Server configuration error: API key missing' });
   }
 
+  async function readFileContent(filePath, file) {
+    try {
+      const agent_instructions = path.join(process.cwd(), 'public', filePath);
+      const content = fs.readFileSync(path.join(agent_instructions, file), 'utf8');
+      return content;
+    } catch (err) {
+      console.error(`Error reading file at ${filePath}:`, err);
+      return '';
+    }
+  }
+
+  // console.log({prompt})
+  
   try {
     // Dynamic RAG: Read all files from the public/about_us directory
     const ragDir = path.join(process.cwd(), 'public', 'about_us');
     const files = fs.readdirSync(ragDir);
-
+    
+    const system_Rules = await readFileContent('agent_instructions', 'system_Rules.txt');
     let combinedKnowledge = "";
-
+    
     for (const file of files) {
       if (file.endsWith('.txt')) {
         const content = fs.readFileSync(path.join(ragDir, file), 'utf8');
@@ -36,19 +50,13 @@ export default async function handler(req, res) {
       }
     }
 
-    const systemPrompt = `You are the Motion-Y AI Assistant. You are a professional, helpful, and technical expert.
+// 1. BE CONCISE AND TO THE POINT: Avoid fluff, unnecessary introductions, or excessive politeness.
+    const systemPrompt = `
+    ${system_Rules}
 
-    KNOWLEDGE BASE (Aggregated from company files):
+    APPROVED KNOWLEDGE BASE (Aggregated from company files):
     ${combinedKnowledge}
 
-    STRICT RESPONSE GUIDELINES:
-    1. BE CONCISE AND TO THE POINT: Avoid fluff, unnecessary introductions, or excessive politeness.
-    2. DIRECT ANSWERS: Provide the most helpful answer immediately. Use bullet points for lists.
-    3. NO NOISE: Do not repeat the question or add generic "As an AI assistant..." filler.
-    4. PRIMARY SOURCE: Use the provided KNOWLEDGE BASE as your primary source of truth.
-    5. KNOWLEDGE LIMITS: If the answer is not present in the KNOWLEDGE BASE, follow the "Important Knowledge Rule" (avoid inventing company-specific facts or prices).
-    6. GENERAL AI: For general AI questions, be brief and state that it is general knowledge.
-    7. TONE: Professional, technical, and sophisticated.
     `;
 
     const messagesWithContext = [
