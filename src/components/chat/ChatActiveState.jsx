@@ -7,12 +7,59 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import cn from "../../utils/cn";
 import useThemeToggle from "../../hooks/useThemeToggle";
+import DynamicLeadForm from "./DynamicLeadForm";
 
-export default function ChatActiveState({ messages, isTyping }) {
+export default function ChatActiveState({ messages, isTyping, onSubmitForm }) {
   const { theme } = useThemeToggle();
   const scrollRef = useRef(null);
 
   const logoSrc = theme === "dark" ? "/logo_light.png" : "/logo_dark.png";
+
+  const renderMessageContent = (content) => {
+    const formRegex = /\[FORM_START\]([\s\S]*?)\[FORM_END\]/;
+    const match = content.match(formRegex);
+
+    if (match) {
+      const preText = content.split("[FORM_START]")[0];
+      const postText = content.split("[FORM_END]")[1];
+      let formConfig = null;
+
+      try {
+        formConfig = JSON.parse(match[1].trim());
+      } catch (e) {
+        console.error("Failed to parse AI form JSON:", e);
+      }
+
+      return (
+        <div className="flex flex-col gap-4">
+          {preText && (
+            <div className="text-[13px] leading-relaxed opacity-90 prose prose-invert max-w-none">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{preText}</ReactMarkdown>
+            </div>
+          )}
+          {formConfig && (
+            <DynamicLeadForm
+              config={formConfig}
+              onSubmit={onSubmitForm}
+            />
+          )}
+          {postText && (
+            <div className="text-[13px] leading-relaxed opacity-90 prose prose-invert max-w-none">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{postText}</ReactMarkdown>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    return (
+      <div className="text-[13px] leading-relaxed opacity-90 prose prose-invert max-w-none prose-p:leading-relaxed prose-li:my-1 prose-strong:text-[var(--text-primary)] prose-headings:text-[var(--text-primary)] prose-headings:font-medium">
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {content}
+        </ReactMarkdown>
+      </div>
+    );
+  };
 
   // Auto-scroll to bottom only when the number of messages changes
   useEffect(() => {
@@ -28,7 +75,7 @@ export default function ChatActiveState({ messages, isTyping }) {
     <div className="h-full flex flex-col overflow-hidden bg-[var(--bg-base)]">
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar"
+        className="flex-1 overflow-y-auto p-3 space-y-8 custom-scrollbar"
       >
         {messages.map((msg, i) => (
           <div
@@ -41,7 +88,7 @@ export default function ChatActiveState({ messages, isTyping }) {
             {/* Message Bubble */}
             <div
               className={cn(
-                "p-4 rounded-[24px] shadow-sm border",
+                "p-3 rounded-[24px] shadow-sm border",
                 "bg-[var(--bg-elevated)] border-[var(--border-subtle)] text-[var(--text-primary)]",
                 msg.role === "user" ? "rounded-tr-none" : "rounded-tl-none"
               )}
@@ -67,13 +114,7 @@ export default function ChatActiveState({ messages, isTyping }) {
                   </div>
                 )}
               </div>
-
-              {/* Content - Now using ReactMarkdown for structured lists and formatting */}
-              <div className="text-[13px] leading-relaxed opacity-90 prose prose-invert max-w-none prose-p:leading-relaxed prose-li:my-1 prose-strong:text-[var(--text-primary)] prose-headings:text-[var(--text-primary)] prose-headings:font-medium">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {msg.content}
-                </ReactMarkdown>
-              </div>
+              {renderMessageContent(msg.content)}
             </div>
           </div>
         ))}

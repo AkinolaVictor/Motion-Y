@@ -337,3 +337,39 @@ The Business Problem, The Current Workflow, The Desired Outcome, The Target User
 all these questions should be in a form, with a button to submit
 i need a function the agent can call for this?
 let me see your plan before building?
+
+i want to create functions for the AI agents:
+i want the AI agent to be able to get necessary lead information from the user, 
+and after a lead has been confirmed, it should send me a main containing all information regarding the lead,
+how will you implement this, let me see your plan
+
+i want the form to have dropdown options that the user can select from,
+please note that not all questions demand a dropdown input type, 
+
+
+i want the form to be very dynamic,
+it should have:
+dropdown option,
+radio button options,
+check box options,
+normal text-input option, 
+date and time selector,
+range selector, and so on.
+only questions that demand a specific type should have it, others should have whetever is needed
+
+also, users should have a degree of freedom of choice, 
+all input types should allow users to type in what their answer is (in case their preferred answer is not part of the provided options)
+let me see your plan before starting
+
+
+bugs to fix:
+the dropdown doesn't show the content it's listing, it only shows empty spaces and other(specify...), so i can't see what to choose, only empty spaces
+the radio button and check box isn't working also.
+
+
+Read through the home, services/[slug], about, and contact page of this website, and extract all the texts into a particular file called "website_content.txt" at the root folder of this project.
+
+
+
+
+

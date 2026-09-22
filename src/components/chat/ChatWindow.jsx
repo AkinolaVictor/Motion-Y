@@ -101,12 +101,12 @@ export default function ChatWindow({ onClose }) {
     await handleSend(text);
   };
 
-  const handleSend = async (text) => {
+  const handleSend = async (text, explicitMsg = null) => {
     if (view === "new") {
       setView("active");
     }
 
-    const userMsg = { role: "user", content: text };
+    const userMsg = explicitMsg || { role: "user", content: text };
     const newMsgs = [...messages, userMsg];
     setMessages(newMsgs);
     setIsTyping(true);
@@ -131,19 +131,48 @@ export default function ChatWindow({ onClose }) {
       const words = fullContent.split(" ");
       let currentText = "";
 
-      for (let i = 0; i < words.length; i++) {
-        currentText += (i === 0 ? "" : " ") + words[i];
+      // Detect if content contains a form (typically indicated by specific markers or structured data)
+      const containsForm = fullContent.includes("[FORM]") || fullContent.includes("[FORM_START]") || fullContent.includes("<form>");
 
-        setMessages(prev => {
-          const updated = [...prev];
-          updated[updated.length - 1] = {
-            ...updated[updated.length - 1],
-            content: currentText
-          };
-          return updated;
-        });
+      if (containsForm) {
+        setMessages(prev => [...prev, { role: "assistant", content: fullContent }]);
+      } else {
+        for (let i = 0; i < words.length; i++) {
+          currentText += (i === 0 ? "" : " ") + words[i];
 
-        await new Promise(resolve => setTimeout(resolve, 40));
+          if ((i + 1) % 10 === 0 || i === words.length - 1) {
+            setMessages(prev => {
+              const updated = [...prev];
+              updated[updated.length - 1] = {
+                ...updated[updated.length - 1],
+                content: currentText
+              };
+              return updated;
+            });
+
+            await new Promise(resolve => setTimeout(resolve, 40));
+          }
+        }
+      }
+
+      // LEAD SUBMISSION TRIGGER
+      if (fullContent.includes("[SUBMIT_LEAD]")) {
+        // Find the most recent lead data from messages
+        const lastLead = [...newMsgs].reverse().find(m => m.leadData);
+        if (lastLead) {
+          const success = await submitLeadToApi(lastLead.leadData);
+          if (success) {
+            setMessages(prev => [...prev, {
+              role: "assistant",
+              content: "✅ Your information has been successfully sent to the Motion-Y team. We'll be in touch shortly!"
+            }]);
+          } else {
+            setMessages(prev => [...prev, {
+              role: "assistant",
+              content: "❌ I encountered a problem sending your details. Please try again or contact us directly."
+            }]);
+          }
+        }
       }
 
       const completedConversation = [...newMsgs, { role: "assistant", content: fullContent }];
@@ -157,6 +186,50 @@ export default function ChatWindow({ onClose }) {
       }]);
       setIsTyping(false);
     }
+  };
+
+  const submitLeadToApi = async (leadData) => {
+    try {
+      const payload = {
+        name: leadData.name || "Unknown",
+        email: leadData.email || "Unknown",
+        type: leadData.type || "other",
+        message: `AI CHAT LEAD CAPTURE\n\n` +
+                `The following lead was qualified and confirmed via the website AI agent:\n\n` +
+                Object.entries(leadData)
+          .filter(([key]) => !['name', 'email', 'type'].includes(key))
+          .map(([key, val]) => `${key.replace(/_/g, " ").toUpperCase()}: ${val}`)
+          .join('\n') +
+                `\n\n---\nSent via Motion-Y AI Agent`
+      };
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      return response.ok;
+    } catch (err) {
+      console.error("Lead Submission Error:", err);
+      return false;
+    }
+  };
+
+  const handleFormSubmit = async (values) => {
+    // Store the lead data in the messages state temporarily so the AI can review it
+    const formattedData = Object.entries(values)
+      .map(([key, value]) => `- ${key.replace(/_/g, " ").toUpperCase()}: ${value}`)
+      .join("\\n");
+
+    const userMsgText = `I have filled out the lead form. Here are the details:\\n\\n${formattedData}`;
+
+    // Store the raw values as a metadata property on the message for easier retrieval later
+    const userMsg = { role: "user", content: userMsgText, leadData: values };
+    setMessages(prev => [...prev, userMsg]);
+
+    // Trigger the AI response to review the data
+    await handleSend(userMsgText, userMsg);
   };
 
   return (
@@ -174,6 +247,7 @@ export default function ChatWindow({ onClose }) {
           <ChatActiveState
             messages={messages}
             isTyping={isTyping}
+            onSubmitForm={handleFormSubmit}
           />
         )}
       </div>
