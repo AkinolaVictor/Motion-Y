@@ -118,7 +118,7 @@ export default function DynamicLeadForm({ config, onSubmit }) {
         <div className="pt-2">
           <Button
             type="submit"
-            className="w-full py-3 rounded-xl bg-[var(--accent)] text-[var(--bg-base)] font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
+            className="w-full py-3 rounded-xl bg-[var(--accent)] text-[13px] font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Submitting..." : "Submit Details"}
