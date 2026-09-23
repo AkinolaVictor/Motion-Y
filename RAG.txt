@@ -7,4 +7,15 @@ for example:
 
 i need as many as possible, make sure each of them is understandable, good, and standard
 
+the agent has an issue trying to send leads to my email when in production
+in development, it sends successfully,
+what is the problem?
+also, i want you to use axios instead of fetch to reach server
 
+
+before the agent shows the form, 
+i want the agent to show a couple of buttons that the user can click,
+for example: 
+- let me reach to the team directly
+- Let me fill a form
+clicking that button is what trigger the form to show
