@@ -20,9 +20,9 @@ const LINKS = [
   { href: "/", label: "Home" },
   { href: "/#services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/projects", label: "Projects" },
+  // { href: "/projects", label: "Projects" },
   // { href: "/lab", label: "Lab" },
-  { href: "/insights", label: "Insights" },
+  // { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

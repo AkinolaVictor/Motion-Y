@@ -368,7 +368,7 @@ the radio button and check box isn't working also.
 
 
 Read through the home, services/[slug], about, and contact page of this website, and extract all the texts into a particular file called "website_content.txt" at the root folder of this project.
-
+let me see your plan first
 
 
 
