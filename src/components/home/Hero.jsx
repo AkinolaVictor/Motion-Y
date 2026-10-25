@@ -128,7 +128,7 @@ export default function Hero() {
               </span>
               <span data-hero-cta>
                 <Button
-                  href="/contact"
+                  href="/portfolio"
                   // external
                   size="lg"
                   variant="ghost"
