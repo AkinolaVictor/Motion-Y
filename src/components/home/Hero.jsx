@@ -59,8 +59,12 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
+  // const title = "Own AI Solutions";
+  // const title2 = "Great Automated";
   const title = "Let's Build The";
-  const title2 = "Future Together";
+  const title2 = "System You Need";
+  // const title = "Let's Build The";
+  // const title2 = "Future Together";
 
   return (
     <section
@@ -83,7 +87,7 @@ export default function Hero() {
             <h1
               id="home-title"
               ref={titleRef}
-              className="overpass font-semibold tracking-[-0.02em] leading-[1.02] text-[clamp(2.3rem,5.5vw,4.8rem)]"
+              className="overpass font-semibold tracking-[-0.02em] leading-[1.02] text-[clamp(2.1rem,5.5vw,4.8rem)]"
             >
               {/* {Array.from(title).map((ch, i) => (
                 <span key={i} data-char className="inline-block whitespace-pre">
@@ -95,7 +99,7 @@ export default function Hero() {
             <h1
               id="home-title"
               ref={titleRef}
-              className="overpass font-semibold tracking-[-0.02em] leading-[1.02] text-[clamp(2.3rem,5.5vw,4.8rem)]"
+              className="overpass font-semibold tracking-[-0.02em] leading-[1.02] text-[clamp(2.1rem,5.5vw,4.8rem)]"
             >
                 {/* {Array.from(title2).map((ch, i) => (
                   <span key={i} data-char className="inline-block whitespace-pre">
@@ -114,8 +118,8 @@ export default function Hero() {
 
             <div className="flex flex-wrap items-center gap-3">
               <span data-hero-cta>
-                <Button href="/projects" size="lg" variant="primary">
-                  Explore Projects
+                <Button href="/contact" size="lg" variant="primary">
+                  Let's Talk
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
@@ -129,7 +133,7 @@ export default function Hero() {
                   size="lg"
                   variant="ghost"
                 >
-                  Let's Talk
+                  See Our Works
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M7 17 17 7" />
                     <path d="M8 7h9v9" />
