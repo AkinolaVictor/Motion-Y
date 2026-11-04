@@ -44,13 +44,13 @@ const ITEMS = [
     glyph: "biz",
     slug: "consulting",
   },
-  {
-    title: "Marketing Systems",
-    description:
-      "AI-powered content, copy, and campaign systems that turn brand voice into compounding output.",
-    glyph: "mkt",
-    slug: "marketing",
-  },
+  // {
+  //   title: "Marketing Systems",
+  //   description:
+  //     "AI-powered content, copy, and campaign systems that turn brand voice into compounding output.",
+  //   glyph: "mkt",
+  //   slug: "marketing",
+  // },
 ];
 
 function Glyph({ kind }) {
