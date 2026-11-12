@@ -1,84 +1,18 @@
-Pricing
 
-Motion-Y project pricing depends on factors such as project scope, complexity, integrations, 
-AI model requirements, data requirements, user volume, and ongoing maintenance.
+## 3. Pricing Structure
+Motion-Y uses mid-range, scope-dependent pricing. All figures are indicative starting prices and package levels, not guaranteed quotations.
 
-The AI assistant should not invent a specific project price when no confirmed pricing 
-information is available.
+| Service | Starting Price |
+|---|---|
+| Process Automation | $350 |
+| AI Agents | $900 |
+| API & Integrations | $250 |
+| AI Consultancy | $100 |
+| Intelligent Software | $1,500 |
 
-When a visitor asks about pricing, the assistant should explain that Motion-Y can assess the 
-requirements and provide an appropriate quote.
-
-
-# Motion-Y — Service Pricing Structure
-
-**Company:** Motion-Y  
-**Category:** AI Agency  
-**Positioning:** AI Systems & Business Automation  
-**Target Market:** Nigeria and International  
-**Pricing Model:** Mid-range / Professional  
-**Currencies:** NGN and USD
-
-All prices are starting prices. Final quotations depend on project scope, complexity and technical requirements.
-
-## 1. Process Automation
-Automating repetitive business operations, workflows and administrative processes.
-
-- **Starter:** $350 / ₦475,000 — 1 simple workflow, up to 2 integrations.
-- **Professional:** $900 / ₦1,210,000 — 3–5 workflows, up to 5 integrations.
-- **Advanced:** $2,000+ / ₦2,695,000+ — 6–10 workflows, complex logic and integrations.
-
-## 2. AI Agents
-Developing intelligent agents that interact with tools, applications and business systems.
-
-- **Starter:** $900 / ₦1,210,000 — Single-purpose agent, 1–2 tools.
-- **Professional:** $2,500 / ₦3,370,000 — Advanced agent, 3–5 tools and multi-step execution.
-- **Advanced:** $7,500+ / ₦10,100,000+ — Multiple agents, orchestration and complex integrations.
-
-## 3. API & Integrations
-Connecting applications, databases, platforms and third-party services.
-
-- **Basic:** $250 / ₦337,000 — 1 API integration.
-- **Standard:** $750 / ₦1,010,000 — 2–4 integrations.
-- **Advanced:** $1,800+ / ₦2,425,000+ — 5+ integrations and custom middleware.
-
-## 4. AI Consultancy
-Helping businesses identify AI opportunities and develop implementation strategies.
-
-- **Consultation:** $100 / ₦135,000 — 60-minute session.
-- **AI Assessment:** $350 / ₦475,000 — Business process assessment and AI opportunity report.
-- **AI Strategy:** $750 / ₦1,010,000 — Detailed AI adoption roadmap and implementation plan.
-
-## 5. Intelligent Software
-Developing custom software applications with AI capabilities and intelligent functionality.
-
-- **MVP:** $1,500 / ₦2,020,000 — Basic functional application.
-- **Professional:** $4,000 / ₦5,390,000 — Full application with backend, database and integrations.
-- **Advanced:** $9,000+ / ₦12,120,000+ — Complex AI-powered software with multiple modules.
-
-## 6. Monthly Maintenance & Managed Services
-
-- **Basic:** $75 / ₦101,000 — Monitoring, minor fixes and basic support.
-- **Professional:** $200 / ₦269,000 — Maintenance, updates, optimisation and technical support.
-- **Premium:** $450 / ₦606,000 — Priority support, monitoring and ongoing improvements.
-
-## 7. Commercial Terms
-
-- Small projects: 60% upfront, 40% on completion.
-- Medium projects: 50% upfront, 30% at milestone, 20% on delivery.
-- Large projects: Milestone-based payments.
-- Consultancy: 100% upfront.
-- Monthly services: Paid in advance.
-- Two revision rounds included in standard projects.
-- Third-party subscriptions, hosting, API usage and applicable taxes are charged separately unless agreed otherwise.
-- Custom quotations apply to projects outside standard packages.
-
-## 8. Currency Policy
-
-Nigerian clients are generally quoted in NGN and international clients in USD. Naira equivalents are indicative and subject to exchange-rate reviews.
-
-**Reference exchange rate:** $1 = ₦1,347.01 (November 9, 2026).
-
-**Pricing Status:** Initial proposed rate card, subject to periodic review as Motion-Y grows.
-
-
+Higher project tiers:
+- Automation: $900–$2,000
+- AI Agents: $2,500–$6,000+
+- Integrations: $750–$1,800+
+- Consultancy: $350–$750
+- Intelligent Software: $4,000–$9,000+
