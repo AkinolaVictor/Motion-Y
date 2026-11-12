@@ -84,7 +84,7 @@ export default function PortfolioPage() {
                 A showcase of production-ready AI systems, from autonomous agents to enterprise-scale automation pipelines.
               </p>
 
-              <div role="tablist" aria-label="Filter portfolio by category" className="flex flex-wrap gap-2">
+              {/* <div role="tablist" aria-label="Filter portfolio by category" className="flex flex-wrap gap-2">
                 {PORTFOLIO_CATEGORIES.map((c) => {
                   const isActive = active === c.key;
                   const count = counts?.byCategory?.[c.key] ?? 0;
@@ -115,7 +115,7 @@ export default function PortfolioPage() {
                     </button>
                   );
                 })}
-              </div>
+              </div> */}
             </div>
           </Container>
 

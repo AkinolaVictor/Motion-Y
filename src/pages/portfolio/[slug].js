@@ -9,6 +9,8 @@ import Button from "../../components/primitives/Button";
 import { PORTFOLIO_PROJECTS } from "../../data/portfolio";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import Link from "next/link";
+// import { Link } from "lucide-react";
 
 export default function PortfolioDetail() {
   const router = useRouter();
@@ -89,6 +91,15 @@ export default function PortfolioDetail() {
                 <span className="mono text-sm text-[var(--text-muted)]">Year: <span className="text-[var(--text-primary)] font-medium">{project.year}</span></span>
                 <span className="mono text-sm text-[var(--text-muted)]">Outcome: <span className="text-[var(--accent)] font-bold">{project.metrics}</span></span>
               </div>
+              {
+                project.link &&
+                <Link href={project.link?.url} target="_blank" rel="noopener noreferrer">
+                  <div className="flex gap-3 justify-start items-center">
+                    <p>{project.link?.title}</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right preview-icon"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
+                  </div>
+                </Link>
+              }
             </Container>
           </section>
 
