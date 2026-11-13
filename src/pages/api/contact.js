@@ -202,20 +202,21 @@ export default async function handler(req, res) {
       transporter.sendMail({
         // from: `Motion-Y`,
         from: `Motion-Y <${process.env.NEXT_PUBLIC_USEMAIL}>`,
-        // from: `process.env.NEXT_PUBLIC_USEMAIL`,
-        to: "akinolavictor50@gmail.com",
-        subject: `Inquiry from ${name} regarding project`,
-        html: buildOwnerHtml(clean),
-        text: buildOwnerText(clean),
-      }),
-      transporter.sendMail({
-        // from: `Motion-Y`,
-        from: `Motion-Y <${process.env.NEXT_PUBLIC_USEMAIL}>`,
         // from: process.env.NEXT_PUBLIC_USEMAIL,
         to: email,
         subject: `Thank you for contacting Motion-Y, ${name}`,
         html: buildClientHtml({ name }),
         text: buildClientText({ name }),
+      }),
+      transporter.sendMail({
+        // from: `Motion-Y`,
+        from: `Motion-Y <${process.env.NEXT_PUBLIC_USEMAIL}>`,
+        // from: `process.env.NEXT_PUBLIC_USEMAIL`,
+        to: "akinolavictor50@gmail.com",
+        // to: process.env.NEXT_PUBLIC_USEMAIL,
+        subject: `Inquiry from ${name} regarding project`,
+        html: buildOwnerHtml(clean),
+        text: buildOwnerText(clean),
       }),
     ]);
 

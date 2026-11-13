@@ -1,10 +1,13 @@
 // contact.js — content for the Contact page.
 // Keep copy and links here so each section component stays focused on layout/animation.
 
-export const EMAIL = "akinolavictor50@gmail.com";
+// export const EMAIL = "akinolavictor50@gmail.com";
+export const EMAIL = "motiony.systems@gmail.com";
 export const EMAIL_LABEL = "Email";
 export const PHONE = "+234 810 170 0105";
-export const PHONE_LABEL = "Call or WhatsApp";
+export const PHONE_LABEL = "Call";
+export const PHONE2 = "+234 915 418 0417";
+export const PHONE_LABEL2 = "WhatsApp";
 export const RESPONSE_WINDOW = "Replies within 48 hours, Mon–Fri.";
 
 // Endpoint the form posts to. Wired to pages/api/contact.js (Resend).
@@ -37,7 +40,8 @@ export const SOCIALS = [
   },
   {
     label: "X",
-    href: "https://x.com/MoreThanAVictor",
+    // href: "https://x.com/MoreThanAVictor",
+    href: "https://x.com/motion_y_ai",
     icon: (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M18.244 2H21l-6.52 7.45L22 22h-6.828l-4.79-6.262L4.8 22H2.043l6.98-7.972L2 2h6.914l4.34 5.74L18.244 2zm-1.193 18.293h1.51L7.07 3.61H5.45l11.6 16.683z"/>
@@ -54,7 +58,7 @@ export const PROJECT_TYPES = [
   { value: "ai-software", label: "AI Software" },
   { value: "api-integration",     label: "API Integration" },
   { value: "ai-consulting",     label: "AI Consulting" },
-  { value: "marketting-system",     label: "Marketting System" },
+  // { value: "marketting-system",     label: "Marketting System" },
   { value: "collaboration",  label: "Collaboration" },
   { value: "other",          label: "Other" },
 ];

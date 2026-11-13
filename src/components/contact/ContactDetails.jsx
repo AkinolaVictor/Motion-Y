@@ -4,7 +4,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { EMAIL, EMAIL_LABEL, PHONE, PHONE_LABEL, RESPONSE_WINDOW, SOCIALS } from "../../data/contact";
+import { EMAIL, EMAIL_LABEL, PHONE, PHONE2, PHONE_LABEL, PHONE_LABEL2, RESPONSE_WINDOW, SOCIALS } from "../../data/contact";
 
 export default function ContactDetails() {
   const ref = useRef(null);
@@ -62,7 +62,8 @@ export default function ContactDetails() {
   }
 
   const copyEmail = () => copyToClipboard(EMAIL, setEmailCopied);
-  const copyPhone = () => copyToClipboard(PHONE, setPhoneCopied);
+  const copyPhone2 = () => copyToClipboard(PHONE, setPhoneCopied);
+  const copyPhone = () => copyToClipboard(PHONE2, setPhoneCopied);
 
   return (
     <div ref={ref} className="w9:col-span-5 flex flex-col gap-7">
@@ -90,7 +91,7 @@ export default function ContactDetails() {
       </p>
 
       {/* Email card */}
-      {/* <button
+      <button
         type="button"
         data-reveal
         onClick={copyEmail}
@@ -165,13 +166,81 @@ export default function ContactDetails() {
             )}
           </span>
         </span>
+      </button>
+
+      {/* Phone card */}
+      {/* <button
+        type="button"
+        data-reveal
+        onClick={copyPhone}
+        aria-label={`Copy ${PHONE_LABEL.toLowerCase()} ${PHONE} to clipboard`}
+        className="group relative flex items-center justify-between gap-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-5 py-4 text-left transition-colors hover:border-[var(--text-muted)] focus-visible:border-[var(--accent)]"
+      >
+        <span className="flex items-center gap-3">
+          <span
+            aria-hidden="true"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border-subtle)] bg-[var(--bg-elevated)] text-[var(--text-muted)] group-hover:text-[var(--accent)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384"/>
+            </svg>
+          </span>
+          <span className="flex flex-col">
+            <span className="mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
+              {PHONE_LABEL2}
+            </span>
+            <span className="overpass text-[16px] font-semibold tracking-tight text-[var(--text-primary)]">
+              {PHONE2}
+            </span>
+          </span>
+        </span>
+
+        <span className="flex items-center gap-2 text-[var(--text-muted)] group-hover:text-[var(--text-primary)]">
+          <span aria-live="polite" className="mono text-[10px] uppercase tracking-[0.22em]">
+            {phoneCopied ? "Copied" : "Copy"}
+          </span>
+          <span
+            aria-hidden="true"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-[var(--border-subtle)] bg-[var(--bg-elevated)]"
+          >
+            {phoneCopied ? (
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-[var(--accent)]"
+              >
+                <path d="m5 12 5 5L20 7" />
+              </svg>
+            ) : (
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15V5a2 2 0 0 1 2-2h10" />
+              </svg>
+            )}
+          </span>
+        </span>
       </button> */}
 
       {/* Phone card */}
       <button
         type="button"
         data-reveal
-        onClick={copyPhone}
+        onClick={copyPhone2}
         aria-label={`Copy ${PHONE_LABEL.toLowerCase()} ${PHONE} to clipboard`}
         className="group relative flex items-center justify-between gap-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-5 py-4 text-left transition-colors hover:border-[var(--text-muted)] focus-visible:border-[var(--accent)]"
       >
