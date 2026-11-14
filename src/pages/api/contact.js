@@ -194,7 +194,7 @@ export default async function handler(req, res) {
     auth: {
       user: process.env.NEXT_PUBLIC_USEMAIL,
       pass: process.env.NEXT_PUBLIC_USEPASS,
-    },
+    }
   });
 
   try {
