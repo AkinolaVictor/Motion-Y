@@ -3,17 +3,26 @@
 import Container from "../primitives/Container";
 
 const SOCIALS = [
+  // {
+  //   href: "https://github.com/AkinolaVictor",
+  //   label: "Github",
+  //   icon: (
+  //     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  //       <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.18c-3.2.7-3.87-1.37-3.87-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.39.96.1-.75.4-1.26.74-1.55-2.55-.29-5.24-1.28-5.24-5.71 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.6.23 2.78.11 3.07.74.81 1.19 1.84 1.19 3.1 0 4.44-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.16v3.2c0 .31.21.67.8.56 4.57-1.52 7.85-5.83 7.85-10.91C23.5 5.65 18.35.5 12 .5z"/>
+  //     </svg>
+  //   ),
+  // },
   {
-    href: "https://github.com/AkinolaVictor",
-    label: "GitHub",
+    label: "X",
+    href: "https://x.com/motion_y_ai",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.18c-3.2.7-3.87-1.37-3.87-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.39.96.1-.75.4-1.26.74-1.55-2.55-.29-5.24-1.28-5.24-5.71 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.6.23 2.78.11 3.07.74.81 1.19 1.84 1.19 3.1 0 4.44-2.69 5.41-5.25 5.7.41.36.78 1.07.78 2.16v3.2c0 .31.21.67.8.56 4.57-1.52 7.85-5.83 7.85-10.91C23.5 5.65 18.35.5 12 .5z"/>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2H21l-6.52 7.45L22 22h-6.828l-4.79-6.262L4.8 22H2.043l6.98-7.972L2 2h6.914l4.34 5.74L18.244 2zm-1.193 18.293h1.51L7.07 3.61H5.45l11.6 16.683z" />
       </svg>
     ),
   },
   {
-    href: "https://www.linkedin.com/in/victoral/",
+    href: "https://www.linkedin.com/company/motion-y/",
     label: "LinkedIn",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -22,7 +31,7 @@ const SOCIALS = [
     ),
   },
   {
-    href: "mailto:akinolavictor50@gmail.com",
+    href: "mailto:motiony.systems@gmail.com",
     label: "Email",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

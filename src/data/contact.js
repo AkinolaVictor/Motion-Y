@@ -31,7 +31,8 @@ export const SOCIALS = [
   // },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/victoral/",
+    // href: "https://www.linkedin.com/in/victoral/",
+    href: "https://www.linkedin.com/company/motion-y/",
     icon: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.71h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.45c0-1.3-.02-2.98-1.82-2.98-1.82 0-2.1 1.42-2.1 2.88V21h-4V9z"/>
