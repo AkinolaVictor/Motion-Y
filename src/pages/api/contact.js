@@ -205,7 +205,7 @@ export default async function handler(req, res) {
         // from: process.env.NEXT_PUBLIC_USEMAIL,
         to: email,
         subject: `Thank you for contacting Motion-Y, ${name}`,
-        html: buildClientHtml({ name }),
+        // html: buildClientHtml({ name }),
         text: buildClientText({ name }),
       }),
       transporter.sendMail({
@@ -215,7 +215,7 @@ export default async function handler(req, res) {
         to: "akinolavictor50@gmail.com",
         // to: process.env.NEXT_PUBLIC_USEMAIL,
         subject: `Inquiry from ${name} regarding project`,
-        html: buildOwnerHtml(clean),
+        // html: buildOwnerHtml(clean),
         text: buildOwnerText(clean),
       }),
     ]);
