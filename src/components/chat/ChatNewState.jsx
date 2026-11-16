@@ -7,7 +7,8 @@ export default function ChatNewState({ onStartChat }) {
   const prompts = [
     "Tell me more about Motion-Y",
     "How can Motion-Y help my business?",
-    "What's the pricing for your automation service"
+    
+    // "What's the pricing for your automation service"
   ];
 
   return (
