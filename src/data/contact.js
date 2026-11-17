@@ -4,9 +4,9 @@
 // export const EMAIL = "akinolavictor50@gmail.com";
 export const EMAIL = "motiony.systems@gmail.com";
 export const EMAIL_LABEL = "Email";
-export const PHONE = "+234 810 170 0105";
-export const PHONE_LABEL = "Call";
-export const PHONE2 = "+234 915 418 0417";
+export const PHONE2 = "+234 810 170 0105";
+export const PHONE_LABEL = "Call and WhatsApp";
+export const PHONE = "+234 915 418 0417";
 export const PHONE_LABEL2 = "WhatsApp";
 export const RESPONSE_WINDOW = "Replies within 48 hours, Mon–Fri.";
 

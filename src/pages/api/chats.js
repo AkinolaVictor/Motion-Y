@@ -96,9 +96,9 @@ export default async function handler(req, res) {
 
     const isLocal = process.env.NEXT_PUBLIC_DEVELOPMENT_ENV === "local";
     const use_API = isLocal ? "http://localhost:11434" : "https://ollama.com";
-    // const model = isLocal ? "gpt-oss:120b-cloud" : "gemma4:31b-cloud";
+    const model = isLocal ? "gpt-oss:20b-cloud" : "gemma4:31b-cloud";
     // const model = "gemma4:31b-cloud";
-    const model = "beam:cloud";
+    // const model = "beam:cloud";
     const response = await fetch(`${use_API}/api/chat`, {
       method: 'POST',
       headers: isLocal ? {
