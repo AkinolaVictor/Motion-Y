@@ -59,6 +59,7 @@ export default async function handler(req, res) {
 
     `;
     // console.log(countTexts())
+    // console.log(countTexts())
     function countTexts(){
       const messa = [...messages]
       let char_estimate = 0
