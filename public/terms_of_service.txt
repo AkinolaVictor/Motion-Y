@@ -1,0 +1,237 @@
+# TERMS OF SERVICE
+**Motion-Y – AI Systems & Business Automation**
+
+**Effective Date:** 16 November 2026  
+**Website:** https://motion-y.com
+
+## 1. Introduction
+
+Welcome to Motion-Y.
+
+These Terms of Service ("Terms") govern your access to and use of the Motion-Y website, services, platforms, business assessment forms and other related offerings.
+
+Motion-Y ("we", "our", or "us") is an AI Systems & Business Automation company focused on helping businesses improve their operations through artificial intelligence, workflow automation, AI agents, API integrations, intelligent software and technology consulting.
+
+By accessing our website, submitting a business assessment, engaging with our services or otherwise interacting with Motion-Y, you agree to these Terms.
+
+If you do not agree with these Terms, please discontinue the use of our website and services.
+
+## 2. Our Services
+
+Motion-Y provides technology-related services designed to help businesses improve operational efficiency, productivity and business processes.
+
+Our services may include:
+
+- **Process Automation:** Designing and implementing automated workflows to reduce repetitive manual activities.
+- **AI Agents:** Developing intelligent agents to assist with business processes, information handling, customer interactions and other operational activities.
+- **API & Integrations:** Connecting software, applications and digital platforms to improve communication and information flow.
+- **AI Consultancy:** Evaluating business operations and recommending suitable AI technologies and implementation strategies.
+- **Intelligent Software:** Designing and developing software solutions that incorporate automation, artificial intelligence and intelligent functionality.
+
+The availability, scope and delivery of individual services may vary depending on business requirements and separate agreements.
+
+## 3. Free AI Business Assessment
+
+Motion-Y may offer free business assessments to help businesses identify potential opportunities for artificial intelligence and automation.
+
+By submitting an assessment form, you acknowledge and agree that:
+
+1. The information you provide is accurate and submitted voluntarily.
+2. Motion-Y may review and analyse your responses to understand your business operations, workflows, challenges and objectives.
+3. Your responses may be processed using AI-assisted technologies to identify potential opportunities and generate preliminary recommendations.
+4. Submission of an assessment does not guarantee that your business will receive a particular solution, implementation proposal or commercial offer.
+5. The assessment and its recommendations are provided for informational and preliminary advisory purposes.
+6. Motion-Y may contact you using the contact information provided to communicate assessment findings, recommendations and relevant service opportunities.
+
+The free assessment does not create an obligation for you to purchase any Motion-Y service.
+
+Similarly, submitting an assessment does not create an obligation for Motion-Y to undertake implementation work.
+
+## 4. Consultations and Recommendations
+
+Motion-Y may provide consultations, preliminary assessments, recommendations and discussions concerning potential AI and automation opportunities.
+
+These recommendations are based on the information available to us at the time of assessment.
+
+You acknowledge that:
+
+- Recommendations may require further investigation before implementation.
+- The suitability of a solution depends on your business environment, technical infrastructure, resources and operational requirements.
+- Preliminary recommendations do not constitute a guarantee of specific business outcomes.
+- Final implementation requirements, costs, timelines and deliverables will be determined through a separate agreement where applicable.
+
+## 5. Client Responsibilities
+
+When using our website or engaging with our services, you agree to:
+
+1. Provide accurate, complete and up-to-date information where reasonably required.
+2. Ensure that you have the authority to submit information on behalf of your business or organization.
+3. Avoid submitting information that you are not legally authorized to disclose.
+4. Cooperate reasonably during consultations, assessments and implementation engagements.
+5. Provide necessary access, permissions, documentation and technical information required for agreed services.
+6. Use our website, platforms and services for lawful purposes.
+7. Avoid interfering with, disrupting or attempting to compromise our systems, services or infrastructure.
+
+You remain responsible for the accuracy of information supplied to Motion-Y and for decisions made based on that information.
+
+## 6. Service Agreements and Payments
+
+Certain Motion-Y services may be provided free of charge, while others may require payment.
+
+Where a service requires payment:
+
+- Pricing will be communicated before the commencement of the relevant paid engagement.
+- The scope of work, deliverables, payment terms and timelines may be documented in a separate proposal, quotation, contract or service agreement.
+- Work requiring payment will generally commence after the relevant terms have been accepted and any agreed initial payment has been received.
+- Additional work outside the agreed scope may require additional fees and approval.
+- Any applicable cancellation, refund or payment arrangements will be communicated in the relevant service agreement.
+
+Submitting a free assessment or requesting a consultation does not automatically create a financial obligation.
+
+## 7. Intellectual Property Rights
+
+All original materials, content, branding, designs, documentation, website elements, software components and other intellectual property developed or owned by Motion-Y remain the property of Motion-Y or their respective rights holders, unless otherwise agreed in writing.
+
+You may not reproduce, distribute, modify, commercially exploit or publicly present Motion-Y-owned materials without prior authorization.
+
+For client engagements:
+
+- Ownership of custom-developed software, deliverables, source code and other project materials will be determined by the relevant service agreement.
+- Third-party software, libraries, APIs, AI models and other technologies remain subject to their respective licences and terms.
+- Clients retain ownership of their original business information, materials and data, subject to applicable rights and third-party obligations.
+
+## 8. Third-Party Platforms and Technologies
+
+Motion-Y may use or integrate third-party platforms, software, APIs, cloud infrastructure, AI models and other external technologies when delivering its services.
+
+These may include communication tools, automation platforms, cloud services, data management systems and AI technologies.
+
+You acknowledge that:
+
+1. Third-party platforms operate under their own terms and privacy policies.
+2. Their availability, pricing, functionality and service conditions may change.
+3. Motion-Y does not control the independent operations of third-party providers.
+4. Certain integrations may require you to maintain your own subscriptions, accounts, licences or API access.
+5. Motion-Y cannot guarantee uninterrupted availability or performance of third-party services.
+
+Where third-party services are necessary for an implementation, their requirements and associated costs will be communicated where reasonably practicable.
+
+## 9. AI and Automation Disclaimer
+
+Artificial intelligence and automation technologies may produce inaccurate, incomplete, unexpected or inconsistent results.
+
+Although Motion-Y aims to design and implement solutions responsibly, we do not guarantee that AI-generated outputs will always be accurate, error-free or suitable for every business situation.
+
+Clients are responsible for:
+
+- Reviewing AI-generated information where appropriate.
+- Validating important business outputs and decisions.
+- Establishing appropriate human oversight for critical processes.
+- Ensuring that implemented systems comply with applicable laws and industry requirements.
+- Maintaining suitable access controls and safeguards for their business systems.
+
+AI and automation solutions are intended to support and improve business operations, not automatically replace every form of human judgement or professional decision-making.
+
+## 10. Service Availability and Modifications
+
+Motion-Y reserves the right to modify, improve, suspend or discontinue any part of its website, free offerings or services where reasonably necessary.
+
+We may also update service features, implementation methods, technologies and delivery processes as our operations evolve.
+
+Where changes materially affect an existing paid engagement, the applicable service agreement will govern the parties' rights and obligations.
+
+We will make reasonable efforts to maintain the availability and functionality of our website and services but do not guarantee uninterrupted access.
+
+## 11. Limitation of Liability
+
+To the extent permitted by applicable law, Motion-Y shall not be liable for:
+
+- Business losses arising from decisions made independently by users based on preliminary recommendations.
+- Losses caused by inaccurate, incomplete or misleading information supplied by clients.
+- Disruptions resulting from third-party platforms, external services or infrastructure beyond our reasonable control.
+- Indirect, incidental or consequential losses arising from the use of our website or services.
+
+Nothing in these Terms excludes or limits liability where such exclusion or limitation is prohibited by applicable law, including liability that cannot legally be excluded.
+
+For paid engagements, any additional limitations of liability will be governed by the relevant service agreement.
+
+## 12. Confidentiality
+
+Motion-Y recognizes that business engagements may involve access to confidential, proprietary or commercially sensitive information.
+
+We will take reasonable measures to protect confidential information shared with us and use it only for legitimate purposes connected to the relevant assessment, consultation or service engagement.
+
+Clients are also expected to avoid sharing information belonging to third parties without appropriate authorization.
+
+Where a project requires additional confidentiality obligations, the parties may enter into a separate Non-Disclosure Agreement (NDA) or other written confidentiality arrangement.
+
+Our handling of personal information is further explained in our Privacy Policy.
+
+## 13. Privacy and Data Protection
+
+Your use of Motion-Y's website and services is also subject to our Privacy Policy.
+
+We may collect and process personal and business information to:
+
+- Provide requested services.
+- Conduct business assessments.
+- Identify AI and automation opportunities.
+- Communicate recommendations and service updates.
+- Manage consultations and client engagements.
+- Improve our services and operations.
+
+We handle personal information in accordance with our Privacy Policy and applicable data protection laws.
+
+For additional information, please review our Privacy Policy at https://motion-y.com/privacy-policy (once published at this address).
+
+## 14. Suspension and Termination
+
+Motion-Y reserves the right to restrict or discontinue access to its website or services where necessary, including where a user:
+
+- Violates these Terms.
+- Engages in unlawful or fraudulent activities.
+- Attempts to compromise our systems or infrastructure.
+- Misuses our services or intellectual property.
+- Provides misleading information in connection with a service engagement.
+
+Any termination of an existing paid engagement will be handled in accordance with the applicable service agreement and relevant laws.
+
+Users may also discontinue their use of our website or free assessment services at any time.
+
+## 15. Changes to These Terms
+
+Motion-Y may revise these Terms from time to time to reflect changes in our services, business operations, technologies or applicable legal requirements.
+
+Updated versions will be published on our website with a revised effective date.
+
+Your continued use of our website and services after updated Terms become effective constitutes acceptance of the revised Terms, to the extent permitted by applicable law.
+
+## 16. Governing Law and Dispute Resolution
+
+These Terms shall be governed by and interpreted in accordance with the laws of the Federal Republic of Nigeria, subject to applicable mandatory laws and consumer protections.
+
+In the event of a dispute, the parties agree to make reasonable efforts to resolve the matter through good-faith discussions and mutual understanding.
+
+Where an amicable resolution cannot be reached, the dispute may be referred to the appropriate courts or other legally recognized dispute resolution mechanisms in Nigeria.
+
+## 17. Contact Information
+
+For questions, enquiries or concerns relating to these Terms of Service, please contact us through the following channels:
+
+**Company:** Motion-Y
+
+**Website:** https://motion-y.com
+
+**Email:** [Insert official Motion-Y contact email]
+
+**Location:** Nigeria
+
+---
+
+**Motion-Y**
+
+*AI Systems & Business Automation*
+
+https://motion-y.com
+
+© 2026 Motion-Y. All rights reserved.

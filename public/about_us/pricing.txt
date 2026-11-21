@@ -65,4 +65,6 @@ Developing custom software applications with AI capabilities and intelligent fun
 
 Nigerian clients are generally quoted in NGN and international clients in USD. Naira equivalents are indicative and subject to exchange-rate reviews.
 
-**Pricing Status:** Initial proposed rate card, subject to periodic review as Motion-Y grows
+**Pricing Status:** Initial proposed rate card, subject to periodic review as Motion-Y grows.
+
+

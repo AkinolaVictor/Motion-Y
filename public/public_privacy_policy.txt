@@ -1,0 +1,217 @@
+# PRIVACY POLICY
+**Motion-Y – AI Systems & Business Automation**
+
+**Effective Date:** 16 November 2026  
+**Website:** https://motion-y.com
+
+## 1. Introduction
+
+At Motion-Y ("we", "our", or "us"), we value your privacy and are committed to protecting the personal and business information you share with us.
+
+Motion-Y is an AI Systems & Business Automation company focused on helping businesses improve their operations through artificial intelligence, intelligent software, workflow automation, AI agents, API integrations and technology consulting.
+
+This Privacy Policy explains how we collect, use, store, process and protect information when you visit our website, complete our forms, participate in our business assessments, communicate with us or use our services.
+
+By interacting with our website, submitting information through our forms or engaging with our services, you acknowledge that you have read this Privacy Policy.
+
+## 2. Information We Collect
+
+We may collect the following categories of information:
+
+### A. Personal Information
+- Full name.
+- Business email address.
+- Phone number or WhatsApp number.
+- Job title or professional position.
+- Preferred communication method.
+
+### B. Business Information
+- Company or business name.
+- Business website and location.
+- Industry and business sector.
+- Company size and organizational structure.
+- Departments and operational responsibilities.
+- Products and services offered.
+- Business objectives and growth plans.
+
+### C. Operational Information
+Through our Free AI Business Assessment and other business engagements, we may collect information about:
+- Your company's daily operations and workflows.
+- Software, applications and digital tools currently in use.
+- Repetitive and manual business processes.
+- Operational challenges and inefficiencies.
+- Time-consuming activities and business bottlenecks.
+- Existing automation and AI implementations.
+- Areas where AI and automation could improve business performance.
+
+### D. Technical Information
+
+When you visit our website, certain technical information may be collected automatically, depending on the technologies and services used. This may include:
+- IP address.
+- Browser type and version.
+- Device information.
+- Website usage information.
+- Cookies and similar technologies, where applicable.
+
+## 3. How We Use Your Information
+
+We collect and process information for legitimate business purposes, including:
+
+1. **Business Assessment:** To understand your company's structure, operations, workflows and challenges.
+
+2. **AI Opportunity Identification:** To identify processes that could benefit from artificial intelligence, automation, intelligent software and system integrations.
+
+3. **Personalized Recommendations:** To develop relevant recommendations and potential solutions based on your business requirements.
+
+4. **Communication:** To contact you with assessment findings, recommendations, updates and responses to your enquiries.
+
+5. **Consultation and Implementation:** To arrange consultations, discuss potential solutions and, where requested and agreed, implement AI and automation systems.
+
+6. **Service Improvement:** To improve our services, assessment processes and business operations.
+
+7. **Legal Compliance:** To meet applicable legal, regulatory and contractual obligations.
+
+We will not use your information for purposes that are incompatible with the purposes described in this policy without an appropriate lawful basis.
+
+## 4. AI-Assisted Analysis and Processing
+
+As an AI Systems and Business Automation company, Motion-Y may use artificial intelligence and automated technologies to assist with analysing business assessment responses and identifying potential opportunities.
+
+This may include:
+- Analysing business workflows and operational structures.
+- Identifying repetitive tasks and inefficiencies.
+- Recognizing patterns in business processes.
+- Evaluating potential automation opportunities.
+- Generating preliminary recommendations and reports.
+
+AI-generated findings may be reviewed and refined by our team before recommendations are communicated.
+
+AI-assisted analysis does not automatically mean that a final business decision or implementation recommendation has been made. We do not intend to make decisions about individuals solely through automated processing where such decisions would have legal or similarly significant effects.
+
+## 5. How We Share Your Information
+
+Motion-Y does not sell your personal information or business assessment responses to third parties.
+
+However, we may share relevant information in the following circumstances:
+
+**A. Technology and Service Providers**
+
+We may use trusted third-party services to support our operations, including:
+- Form and data collection platforms.
+- Cloud storage and document management services.
+- AI and data processing services.
+- Email and communication platforms.
+- Workflow automation and integration tools.
+- Website hosting and analytics services.
+
+These providers may process information on our behalf where necessary to deliver their services.
+
+**B. Business Implementation**
+
+Where you request or authorize the implementation of a solution, relevant information may be shared with service providers or implementation partners where necessary to deliver the agreed service.
+
+**C. Legal Requirements**
+
+We may disclose information where required by applicable law, regulation, court order or lawful government request.
+
+## 6. Data Storage and Security
+
+We take reasonable technical and organizational measures to protect information against unauthorized access, disclosure, alteration, loss or destruction.
+
+These measures may include:
+- Access restrictions and account permissions.
+- Secure storage and data management practices.
+- Appropriate authentication and access controls.
+- Responsible use of third-party technology providers.
+- Limiting access to information to authorized personnel and service providers who need it.
+
+Although we take reasonable precautions, no internet-based platform, electronic transmission or storage system can be guaranteed to be completely secure.
+
+## 7. Data Retention
+
+We retain personal and business information only for as long as reasonably necessary to fulfil the purposes for which it was collected.
+
+Assessment information may be retained for up to 12 months after the assessment is completed, unless:
+- You continue to engage with Motion-Y.
+- The information is required for an ongoing business relationship.
+- We are required to retain it by law.
+- A longer retention period is otherwise justified by a lawful purpose.
+
+When information is no longer required, we will take reasonable steps to delete, anonymize or securely dispose of it.
+
+## 8. Your Privacy Rights
+
+Depending on applicable data protection laws, you may have the right to:
+
+- Request access to personal information we hold about you.
+- Request corrections to inaccurate or incomplete information.
+- Request deletion of your personal information.
+- Withdraw consent where processing is based on consent.
+- Object to certain types of processing.
+- Request restrictions on certain processing activities.
+- Request a copy of your personal information in an appropriate portable format.
+- Lodge a complaint with the relevant data protection authority.
+
+To exercise any of these rights, contact us using the details provided in this policy.
+
+We will review and respond to legitimate requests in accordance with applicable data protection laws.
+
+## 9. Cookies and Website Technologies
+
+Our website may use cookies and similar technologies to improve functionality, understand website usage and enhance the browsing experience.
+
+Where applicable, you may manage cookie preferences through your browser or available website controls.
+
+Some cookies may be necessary for the proper functioning of the website, while others may support analytics or other optional functionality.
+
+## 10. Third-Party Websites and Services
+
+Our website or communications may contain links to third-party websites, platforms or services.
+
+These external platforms operate under their own privacy policies and practices.
+
+Motion-Y is not responsible for the privacy, security or content practices of external websites. We encourage you to review their privacy policies before submitting personal information.
+
+## 11. International Data Transfers
+
+Some of the technology and service providers we use may store or process information outside Nigeria.
+
+Where personal information is transferred internationally, Motion-Y will take appropriate steps to ensure that such transfers are handled in accordance with applicable data protection requirements.
+
+## 12. Children's Privacy
+
+Our services and business assessments are intended for businesses, business owners and professionals.
+
+We do not knowingly collect personal information from children in connection with our business assessment services.
+
+If we become aware that personal information has been collected from a child in circumstances where such collection is not permitted, we will take appropriate steps to address it.
+
+## 13. Changes to This Privacy Policy
+
+We may update this Privacy Policy from time to time to reflect changes in our business operations, technology, services or applicable legal requirements.
+
+Any updates will be published on our website, together with the revised effective date.
+
+We encourage visitors and users of our services to review this policy periodically.
+
+## 14. Contact Us
+
+If you have questions about this Privacy Policy, wish to exercise your privacy rights or have concerns about how your information is handled, you can contact us through the following channels:
+
+**Company:** Motion-Y
+
+**Website:** https://motion-y.com
+
+**Email:** [Insert official Motion-Y privacy/contact email]
+
+**Location:** Nigeria
+
+We will make reasonable efforts to address privacy enquiries and requests in a timely manner.
+
+---
+
+**Motion-Y**
+
+*AI Systems & Business Automation*
+
+https://motion-y.com
