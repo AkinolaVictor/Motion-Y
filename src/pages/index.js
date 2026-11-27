@@ -22,6 +22,7 @@ export default function Home() {
           content="Motion-Y builds AI agents, intelligent software, and automation solutions that help businesses streamline operations, increase productivity, and accelerate growth."
         />
         <meta property="og:title" content="Motion-Y — AI Agency" />
+        <meta name="google-site-verification" content="38Wx14OBudXJILfaxv0qIyGyDh6mamtBuBnaVUxCKSQ" />
         <meta
           property="og:description"
           content="We build intelligent applications, AI agents, and AI-powered workflows that turn complex business challenges into practical solutions."
